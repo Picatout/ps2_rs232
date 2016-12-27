@@ -3,11 +3,11 @@ utilisation d'un PIC12F1572 pour interfacer un clavier PS/2 avec sortie RS232 en
 
 ## détail
 Pour éviter d'avoir à refaire le travail à chaque fois que j'utilise un clavier PS/2 dans un
-projet de microcontrôleur, ce module pour y être intégré. Il prend en charge l'interface avec
+projet de microcontrôleur, ce module peut y être intégré à faible coût. Il prend en charge l'interface avec
 le clavier ainsi que la conversion des codes claviers en codes ASCII. Les touches qui n'ont 
 pas de correspondance dans le code ASCII renvoient un code d'une valeur supérieur à 127.
 
-Les relâchement de touches sont ignorés. Les touches ALT,CTRL,SHIFT,NUM et CAPS sont traîtées
+Les relâchements de touches sont ignorés. Les touches ALT,CTRL,SHIFT,NUM et CAPS sont traîtées
 par le PIC12F1572 aucun code n'est retransmis pour ces touches.
 
 ## codes des touches virtuelles
@@ -31,7 +31,7 @@ flèche bas | VK_DOWN | 142
 flèche gauche | VK_LEFT | 143
 flèche droite | VK_RIGHT | 144
 début | VK_HOME | 145
-find | VK_END | 146
+fin | VK_END | 146
 page préc. | VK_PGUP | 147
 page suiv. | VK_PGDN | 148
 insert | VK_INSERT | 149
