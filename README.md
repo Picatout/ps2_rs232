@@ -56,5 +56,9 @@ CTRL-END | VK_CEND | 	182
 CTRL-PGUP | VK_CPGUP | 	183
 CTRL-PGDN | VK_CPGDN | 	184
 
+## schématique
+
+![schematic](schematic.png)
+
 
 
