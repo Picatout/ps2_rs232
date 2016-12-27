@@ -11,31 +11,31 @@ pas de correspondance dans le code ASCII renvoient un code d'une valeur supérie
 
 touche | nom | code
 --------------------
-F1|VK_F1|128
-F2|VK_F2|129
-F3|VK_F3|130
-F4|VK_F4|131
-F5|VK_F5|132
-F5|VK_F6|133
-F7|VK_F7|134
-F8|VK_F8|135
-F9|VK_F9|136
-F10|VK_F10|138
-F11|VK_F11|139
-F12|VK_F12|140
-flèche haut|VK_UP|141
-flèche bas|VK_DOWN|142
-flèche gauche|VK_LEFT|143
-flèche droite|VK_RIGHT|144
-début|VK_HOME|145
-find|VK_END|146
-page préc.|VK_PGUP|147
-page suiv.|VK_PGDN|148
-insert|VK_INSERT|149
-efface|VK_DELETE|150
-appli.|VK_APPS|151
-impr.|VK_PRN|152
-pause|VK_PAUSE|153
+F1 | VK_F1 | 128
+F2 | VK_F2 | 129
+F3 | VK_F3 | 130
+F4 | VK_F4 | 131
+F5 | VK_F5 | 132
+F5 | VK_F6 | 133
+F7 | VK_F7 | 134
+F8 | VK_F8 | 135
+F9 | VK_F9 | 136
+F10 | VK_F10 | 138
+F11 | VK_F11 | 139
+F12 | VK_F12 | 140
+flèche haut | VK_UP | 141
+flèche bas | VK_DOWN | 142
+flèche gauche | VK_LEFT | 143
+flèche droite | VK_RIGHT | 144
+début | VK_HOME | 145
+find | VK_END | 146
+page préc. | VK_PGUP | 147
+page suiv. | VK_PGDN | 148
+insert | VK_INSERT | 149
+efface | VK_DELETE | 150
+appli. | VK_APPS | 151
+impr. | VK_PRN | 152
+pause | VK_PAUSE | 153
 
 
 
