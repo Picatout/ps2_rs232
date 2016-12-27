@@ -10,7 +10,7 @@ pas de correspondance dans le code ASCII renvoient un code d'une valeur supérie
 ## codes des touches virtuelles
 
 touche | nom | code
---------------------
+-------|-----|------
 F1 | VK_F1 | 128
 F2 | VK_F2 | 129
 F3 | VK_F3 | 130
