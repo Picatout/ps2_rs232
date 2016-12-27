@@ -1,0 +1,192 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:Personal_KiCAD
+LIBS:ps2_rs232-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L PIC12F1572 U1
+U 1 1 585C0497
+P 4650 4050
+F 0 "U1" H 4600 3800 60  0000 C CNN
+F 1 "PIC12F1572" H 4650 4300 39  0000 C CNN
+F 2 "" H 4650 3850 60  0001 C CNN
+F 3 "" H 4650 3850 60  0001 C CNN
+	1    4650 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L M_DIN_6 J1
+U 1 1 585C075A
+P 6350 4000
+F 0 "J1" H 6350 3600 60  0000 C CNN
+F 1 "PS/2 socket" H 6400 4400 60  0000 C CNN
+F 2 "" H 6400 3650 60  0001 C CNN
+F 3 "" H 6400 3650 60  0001 C CNN
+	1    6350 4000
+	1    0    0    -1  
+$EndComp
+Text Label 4200 3900 2    60   ~ 0
++5v
+Text Label 5950 4000 2    60   ~ 0
++5v
+$Comp
+L GND #PWR3
+U 1 1 585C07F3
+P 7050 4000
+F 0 "#PWR3" H 7050 3750 50  0001 C CNN
+F 1 "GND" H 7050 3850 50  0000 C CNN
+F 2 "" H 7050 4000 50  0000 C CNN
+F 3 "" H 7050 4000 50  0000 C CNN
+	1    7050 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6750 4000 7050 4000
+$Comp
+L R R1
+U 1 1 585C080F
+P 6700 3400
+F 0 "R1" V 6780 3400 50  0000 C CNN
+F 1 "15K" V 6700 3400 50  0000 C CNN
+F 2 "" V 6630 3400 50  0000 C CNN
+F 3 "" H 6700 3400 50  0000 C CNN
+	1    6700 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R2
+U 1 1 585C0864
+P 6950 3400
+F 0 "R2" V 7030 3400 50  0000 C CNN
+F 1 "15K" V 6950 3400 50  0000 C CNN
+F 2 "" V 6880 3400 50  0000 C CNN
+F 3 "" H 6950 3400 50  0000 C CNN
+	1    6950 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 3550 6700 3850
+Wire Wire Line
+	6950 3550 6950 4150
+Wire Wire Line
+	6950 4150 6700 4150
+Wire Wire Line
+	6950 3250 6700 3250
+Text Label 6700 3250 2    60   ~ 0
++5v
+Text Label 6700 3850 0    60   ~ 0
+DAT
+Text Label 6700 4150 0    60   ~ 0
+CLK
+Text Label 5100 4100 0    60   ~ 0
+DAT
+Text Label 5100 4200 0    60   ~ 0
+CLK
+$Comp
+L GND #PWR2
+U 1 1 585C090D
+P 5450 3900
+F 0 "#PWR2" H 5450 3650 50  0001 C CNN
+F 1 "GND" H 5450 3750 50  0000 C CNN
+F 2 "" H 5450 3900 50  0000 C CNN
+F 3 "" H 5450 3900 50  0000 C CNN
+	1    5450 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 3900 5450 3900
+Text Label 4200 4100 2    60   ~ 0
+TX
+$Comp
+L C C2
+U 1 1 585C0936
+P 4600 3550
+F 0 "C2" H 4625 3650 50  0000 L CNN
+F 1 "100nF" H 4625 3450 50  0000 L CNN
+F 2 "" H 4638 3400 50  0000 C CNN
+F 3 "" H 4600 3550 50  0000 C CNN
+	1    4600 3550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4450 3550 4200 3550
+Wire Wire Line
+	4200 3550 4200 3900
+Wire Wire Line
+	4750 3550 5100 3550
+Wire Wire Line
+	5100 3550 5100 3900
+NoConn ~ 5100 4000
+NoConn ~ 4200 4000
+$Comp
+L C C1
+U 1 1 585C13D5
+P 4200 4550
+F 0 "C1" H 4225 4650 50  0000 L CNN
+F 1 "100nF" H 4225 4450 50  0000 L CNN
+F 2 "" H 4238 4400 50  0000 C CNN
+F 3 "" H 4200 4550 50  0000 C CNN
+	1    4200 4550
+	-1   0    0    1   
+$EndComp
+$Comp
+L GND #PWR1
+U 1 1 585C1439
+P 4200 4800
+F 0 "#PWR1" H 4200 4550 50  0001 C CNN
+F 1 "GND" H 4200 4650 50  0000 C CNN
+F 2 "" H 4200 4800 50  0000 C CNN
+F 3 "" H 4200 4800 50  0000 C CNN
+	1    4200 4800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 4700 4200 4800
+Wire Wire Line
+	4200 4400 4200 4200
+Text Label 4200 4200 2    60   ~ 0
+~reset
+Text Notes 7250 6850 0    79   ~ 0
+licence: CC-BY-SA
+$EndSCHEMATC

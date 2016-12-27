@@ -1,0 +1,858 @@
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                      00002 ;NOM: ps2_rs232
+                      00003 ;DESCRIPTION: adapteur de clavier PS/2 vers RS232 TTL. 
+                      00004 ;   le MCU PIC12F1572 lit les codes du clavier et les convertis en codes ASCII
+                      00005 ;   pour les retransmettre via le EUSART. 
+                      00006 ;CRÉATION:  2016-12-22
+                      00007 ;AUTEUR: Jacques Deschênes, Copyright 2016
+                      00008 ;This file is part of ps2_rs232.
+                      00009 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                      00010 ;
+                      00011 ;    ps2_rs232 is free software: you can redistribute it and/or modify
+                      00012 ;    it under the terms of the GNU General Public License as published by
+                      00013 ;    the Free Software Foundation, either version 3 of the License, or
+                      00014 ;    (at your option) any later version.
+                      00015 ;
+                      00016 ;    ps2_rs232 is distributed in the hope that it will be useful,
+                      00017 ;    but WITHOUT ANY WARRANTY; without even the implied warranty of
+                      00018 ;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                      00019 ;    GNU General Public License for more details.
+                      00020 ;
+                      00021 ;    You should have received a copy of the GNU General Public License
+                      00022 ;    along with ps2_rs232.  If not, see <https://www.gnu.org/licenses/>.
+                      00023 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                      00024 
+                      00025 ; table scancode vers ASCII pour clavier MCSaite
+                      00026     include ascii.inc
+                      00001 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                      00002 ;NOM: ps2_rs232
+                      00003 ;DESCRIPTION: adapteur de clavier PS/2 vers RS232 TTL. 
+                      00004 ;   le MCU PIC12F1572 lit les codes du clavier et les convertis en codes ASCII
+                      00005 ;   pour les retransmettre via le EUSART. 
+                      00006 ;CRÉATION:  2016-12-22
+                      00007 ;AUTEUR: Jacques Deschênes, Copyright 2016
+                      00008 ;This file is part of ps2_rs232.
+                      00009 ; REF:  http://www.asciitable.com/    
+                      00010 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                      00011 ;
+                      00012 ;This file is part of ps2_rs232.
+                      00013 ;
+                      00014 ;    ps2_rs232 is free software: you can redistribute it and/or modify
+                      00015 ;    it under the terms of the GNU General Public License as published by
+                      00016 ;    the Free Software Foundation, either version 3 of the License, or
+                      00017 ;    (at your option) any later version.
+                      00018 ;
+                      00019 ;    ps2_rs232 is distributed in the hope that it will be useful,
+                      00020 ;    but WITHOUT ANY WARRANTY; without even the implied warranty of
+                      00021 ;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                      00022 ;    GNU General Public License for more details.
+                      00023 ;
+                      00024 ;    You should have received a copy of the GNU General Public License
+                      00025 ;    along with ps2_rs232.  If not, see <https://www.gnu.org/licenses/>.
+                      00026 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                      00027 
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00028 ;liste de code ASCII avec nom symbolique
+                      00029 ;REF: www.asciitable.com
+                      00030     radix dec
+                      00031 ; codes de contrôle    
+  00000000            00032 A_NUL   equ     0   ;null
+  00000001            00033 A_SOH   equ     1   ;start of heading
+  00000002            00034 A_STX   equ     2   ;start of text
+  00000003            00035 A_ETX   equ     3   ;end of text
+  00000004            00036 A_EOT   equ     4   ;end of transmission
+  00000005            00037 A_ENQ   equ     5   ;enquiry
+  00000006            00038 A_ACK   equ     6   ;acknowledge
+  00000007            00039 A_BEL   equ     7   ;bell
+  00000008            00040 A_BKSP  equ     8   ;backspace
+  00000009            00041 A_TAB   equ     9   ;horizontal tab
+  0000000A            00042 A_LF    equ     10  ;line feed
+  0000000B            00043 A_VT    equ     11  ;vertical tab
+  0000000C            00044 A_FF    equ     12  ;form feed
+  0000000D            00045 A_CR    equ     13  ;carriage return
+  0000000E            00046 A_SO    equ     14  ;shift out
+  0000000F            00047 A_SI    equ     15  ;shift in
+  00000010            00048 A_DLE   equ     16  ;data link escape
+  00000011            00049 A_DC1   equ     17  ;device control 1
+  00000012            00050 A_DC2   equ     18  ;device control 2
+  00000013            00051 A_DC3   equ     19  ;device control 3
+  00000014            00052 A_DC4   equ     20  ;device control 4
+  00000015            00053 A_NAK   equ     21  ;negative ackowledge
+  00000016            00054 A_SYN   equ     22  ;synchronous idle
+  00000017            00055 A_ETB   equ     23  ;end of trans. block
+  00000018            00056 A_CAN   equ     24  ;cancel
+  00000019            00057 A_EM    equ     25  ;end of medium
+  0000001A            00058 A_SUB   equ     26  ;substitute
+  0000001B            00059 A_ESC   equ     27  ;escape
+  0000001C            00060 A_FS    equ     28  ;file separator     
+  0000001D            00061 A_GS    equ     29  ;group separator
+  0000001E            00062 A_RS    equ     30  ;record separator
+  0000001F            00063 A_US    equ     31  ;unit separator
+                      00064 ;caractères
+  00000020            00065 A_SPACE equ     32  ; ' '
+  00000021            00066 A_EXCLA equ     33  ; '!'
+  00000022            00067 A_DQUOT equ     34  ; '"'       
+  00000023            00068 A_SHARP equ     35  ; '#'
+  00000024            00069 A_DOLLR equ     36  ; '$'
+  00000025            00070 A_PRCNT equ     37  ; '%'
+  00000026            00071 A_AMP   equ     38  ; '&'
+  00000027            00072 A_QUOT  equ     39  ; '\''
+  00000028            00073 A_LPAR  equ     40  ; '('
+  00000029            00074 A_RPAR  equ     41  ; ')'
+  0000002A            00075 A_STAR  equ     42  ; '*'
+  0000002B            00076 A_PLUS  equ     43  ; '+'
+  0000002C            00077 A_COMM  equ     44  ; ','
+  0000002D            00078 A_DASH  equ     45  ; '-'
+  0000002E            00079 A_DOT   equ     46  ; '.'
+  0000002F            00080 A_SLASH equ     47  ; '/'
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+  00000030            00081 A_0     equ     48  ; '0'
+  00000031            00082 A_1     equ     49  ; '1'
+  00000032            00083 A_2     equ     50  ; '2'
+  00000033            00084 A_3     equ     51  ; '3'       
+  00000034            00085 A_4     equ     52  ; '4'
+  00000035            00086 A_5     equ     53  ; '5'
+  00000036            00087 A_6     equ     54  ; '6'
+  00000037            00088 A_7     equ     55  ; '7'
+  00000038            00089 A_8     equ     56  ; '8'
+  00000039            00090 A_9     equ     57  ; '9'
+  0000003A            00091 A_COL   equ     58  ; ':'
+  0000003B            00092 A_SCOL  equ     59  ; ';'
+  0000003C            00093 A_LT    equ     60  ; '<'
+  0000003D            00094 A_EQUAL equ     61  ; '='
+  0000003E            00095 A_GT    equ     62  ; '>'
+  0000003F            00096 A_QUST  equ     63  ; '?'
+  00000040            00097 A_AROB  equ     64  ; '@'
+  00000041            00098 A_AU    equ     65  ; 'A'
+  00000042            00099 A_BU    equ     66  ; 'B'
+  00000043            00100 A_CU    equ     67  ; 'C'
+  00000044            00101 A_DU    equ     68  ; 'D'
+  00000045            00102 A_EU    equ     69  ; 'E'
+  00000046            00103 A_FU    equ     70  ; 'F'
+  00000047            00104 A_GU    equ     71  ; 'G'
+  00000048            00105 A_HU    equ     72  ; 'H'
+  00000049            00106 A_IU    equ     73  ; 'I'
+  0000004A            00107 A_JU    equ     74  ; 'J'
+  0000004B            00108 A_KU    equ     75  ; 'K'
+  0000004C            00109 A_LU    equ     76  ; 'L'
+  0000004D            00110 A_MU    equ     77  ; 'M'
+  0000004E            00111 A_NU    equ     78  ; 'N'
+  0000004F            00112 A_OU    equ     79  ; 'O'
+  00000050            00113 A_PU    equ     80  ; 'P'
+  00000051            00114 A_QU    equ     81  ; 'Q'
+  00000052            00115 A_RU    equ     82  ; 'R'
+  00000053            00116 A_SU    equ     83  ; 'S'
+  00000054            00117 A_TU    equ     84  ; 'T'
+  00000055            00118 A_UU    equ     85  ; 'U'
+  00000056            00119 A_VU    equ     86  ; 'V'
+  00000057            00120 A_WU    equ     87  ; 'W'
+  00000058            00121 A_XU    equ     88  ; 'X'
+  00000059            00122 A_YU    equ     89  ; 'Y'
+  0000005A            00123 A_ZU    equ     90  ; 'Z'
+  0000005B            00124 A_LBRK  equ     91  ; '['
+  0000005C            00125 A_BSLA  equ     92  ; '\\'
+  0000005D            00126 A_RBRK  equ     93  ; ']'
+  0000005E            00127 A_CIRC  equ     94  ; '^'
+  0000005F            00128 A_UNDR  equ     95  ; '_'
+  00000060            00129 A_ACUT  equ     96  ; '`'
+  00000061            00130 A_AL    equ     97  ; 'a'
+  00000062            00131 A_BL    equ     98  ; 'b'
+  00000063            00132 A_CL    equ     99  ; 'c'
+  00000064            00133 A_DL    equ     100 ; 'd'
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+  00000065            00134 A_EL    equ     101 ; 'e'
+  00000066            00135 A_FL    equ     102 ; 'f'
+  00000067            00136 A_GL    equ     103 ; 'g'
+  00000068            00137 A_HL    equ     104 ; 'h'
+  00000069            00138 A_IL    equ     105 ; 'i'
+  0000006A            00139 A_JL    equ     106 ; 'j'
+  0000006B            00140 A_KL    equ     107 ; 'k'
+  0000006C            00141 A_LL    equ     108 ; 'l'
+  0000006D            00142 A_ML    equ     109 ; 'm'
+  0000006E            00143 A_NL    equ     110 ; 'n'
+  0000006F            00144 A_OL    equ     111 ; 'o'
+  00000070            00145 A_PL    equ     112 ; 'p'
+  00000071            00146 A_QL    equ     113 ; 'q'
+  00000072            00147 A_RL    equ     114 ; 'r'
+  00000073            00148 A_SL    equ     115 ; 's'
+  00000074            00149 A_TL    equ     116 ; 't'
+  00000075            00150 A_UL    equ     117 ; 'u'
+  00000076            00151 A_VL    equ     118 ; 'v'
+  00000077            00152 A_WL    equ     119 ; 'w'
+  00000078            00153 A_XL    equ     120 ; 'x'
+  00000079            00154 A_YL    equ     121 ; 'y'
+  0000007A            00155 A_ZL    equ     122 ; 'z'
+  0000007B            00156 A_LBRC  equ     123 ; '{'
+  0000007C            00157 A_PIPE  equ     124 ; '|'
+  0000007D            00158 A_RBRC  equ     125 ; '}'
+  0000007E            00159 A_TILD  equ     126 ; '~'
+  0000007F            00160 A_DEL   equ     127 ; DELETE    
+                      00161         
+                      00162         
+                      00027     include ps2_codes.inc
+                      00001 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                      00002 ;NOM: ps2_rs232
+                      00003 ;DESCRIPTION: adapteur de clavier PS/2 vers RS232 TTL. 
+                      00004 ;   le MCU PIC12F1572 lit les codes du clavier et les convertis en codes ASCII
+                      00005 ;   pour les retransmettre via le EUSART. 
+                      00006 ;CRÉATION:  2016-12-22
+                      00007 ;AUTEUR: Jacques Deschênes, Copyright 2016
+                      00008 ;This file is part of ps2_rs232.
+                      00009 ;REF:
+                      00010 ;   http://www.computer-engineering.org/ps2protocol/  
+                      00011 ;   http://www.computer-engineering.org/ps2keyboard/scancodes2.html    
+                      00012 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                      00013 ;
+                      00014 ;This file is part of ps2_rs232.
+                      00015 ;
+                      00016 ;    ps2_rs232 is free software: you can redistribute it and/or modify
+                      00017 ;    it under the terms of the GNU General Public License as published by
+                      00018 ;    the Free Software Foundation, either version 3 of the License, or
+                      00019 ;    (at your option) any later version.
+                      00020 ;
+                      00021 ;    ps2_rs232 is distributed in the hope that it will be useful,
+                      00022 ;    but WITHOUT ANY WARRANTY; without even the implied warranty of
+                      00023 ;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00024 ;    GNU General Public License for more details.
+                      00025 ;
+                      00026 ;    You should have received a copy of the GNU General Public License
+                      00027 ;    along with ps2_rs232.  If not, see <https://www.gnu.org/licenses/>.
+                      00028 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                      00029 
+                      00030 ; scancode clavier PS/2
+                      00031     radix dec
+                      00032     
+                      00033 ; commandes contrôle clavier
+  000000FF            00034 KBD_RESET equ   0xFF  ; commande RAZ clavier
+  000000ED            00035 KBD_LED equ     0xED  ; commande de contrôle des LEDS du clavier
+  000000FE            00036 KBD_RESEND equ  0xFE  ; demande de renvoie de la commande ou le code clavier
+                      00037  
+                      00038 ; codes d'état du clavier
+  000000AA            00039 BAT_OK equ      0xAA ; test clavier réussi
+  000000FA            00040 KBD_ACK equ     0xFA ; confirmation réception (envoyé par le clavier)
+  000000F0            00041 KEY_REL equ     0xF0 ; touche relâchée 
+  000000E0            00042 XT_KEY equ      0xE0 ; touche étendue
+  000000E1            00043 XT2_KEY equ     0xE1 ; débute séquence de 8 caractère touche PAUSE
+                      00044  
+                      00045 ; touches de contrôle 
+  0000000D            00046 SC_TAB equ          0x0D    ;standard
+  0000005A            00047 SC_ENTER equ        0x5A    ;standard
+  00000058            00048 SC_CAPS equ         0x58    ;standard
+  00000077            00049 SC_NUM equ          0x77    ;standard
+  0000007E            00050 SC_SCROLL   equ     0x7E    ;standard
+  00000012            00051 SC_LSHIFT equ       0x12    ;standard
+  00000059            00052 SC_RSHIFT equ       0x59    ;standard
+  00000014            00053 SC_LCTRL equ        0x14    ;standard
+  00000011            00054 SC_LALT equ         0x11    ;standard
+  00000066            00055 SC_BKSP equ         0x66    ;standard
+  00000076            00056 SC_ESC equ          0x76    ;standard
+  00000005            00057 SC_F1 equ           0x05    ;standard
+  00000006            00058 SC_F2 equ           0x06    ;standard
+  00000004            00059 SC_F3 equ           0x04    ;standard
+  0000000C            00060 SC_F4 equ           0x0c    ;standard
+  00000003            00061 SC_F5 equ           0x03    ;standard
+  0000000B            00062 SC_F6 equ           0x0b    ;standard
+  00000083            00063 SC_F7 equ           0x83    ;standard
+  0000000A            00064 SC_F8 equ           0x0a    ;standard
+  00000001            00065 SC_F9 equ           0x01    ;standard
+  00000009            00066 SC_F10 equ          0x09    ;standard
+  00000078            00067 SC_F11 equ          0x78    ;standard
+  00000007            00068 SC_F12 equ          0x07    ;standard
+  0000007C            00069 SC_KPMUL equ        0x7c    ;standard
+  0000007B            00070 SC_KPMINUS equ      0x7b    ;standard
+  00000079            00071 SC_KPPLUS equ       0x79    ;standard
+  00000071            00072 SC_KPDOT equ        0x71    ;standard
+  00000070            00073 SC_KP0 equ          0x70    ;standard
+  00000069            00074 SC_KP1 equ          0x69    ;standard
+  00000072            00075 SC_KP2 equ          0x72    ;standard
+  0000007A            00076 SC_KP3 equ          0x7a    ;standard
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+  0000006B            00077 SC_KP4 equ          0x6b    ;standard
+  00000073            00078 SC_KP5 equ          0x73    ;standard
+  00000074            00079 SC_KP6 equ          0x74    ;standard
+  0000006C            00080 SC_KP7 equ          0x6c    ;standard
+  00000075            00081 SC_KP8 equ          0x75    ;standard
+  0000007D            00082 SC_KP9 equ          0x7d    ;standard
+                      00083 
+                      00084 ; codes étendus. i.e. précédés de 0xe0
+  00000014            00085 SC_RCTRL equ   0x14
+  0000001F            00086 SC_LGUI equ    0x1f
+  00000027            00087 SC_RGUI equ    0x27 
+  00000011            00088 SC_RALT equ    0x11
+  0000002F            00089 SC_APPS equ    0x2f
+  00000075            00090 SC_UP    equ    0x75
+  00000072            00091 SC_DOWN equ    0x72
+  0000006B            00092 SC_LEFT equ    0x6B
+  00000074            00093 SC_RIGHT equ   0x74
+  00000070            00094 SC_INSERT equ  0x70
+  0000006C            00095 SC_HOME equ    0x6c
+  0000007D            00096 SC_PGUP equ    0x7d
+  0000007A            00097 SC_PGDN equ    0x7a
+  00000071            00098 SC_DEL   equ    0x71
+  00000069            00099 SC_END   equ    0x69
+  0000004A            00100 SC_KPDIV equ   0x4a
+  0000005A            00101 SC_KPENTER equ 0x5a
+                      00102  
+                      00103  
+                      00104 ;sécquence de codes 
+                      00105 #define SC_PRN      0xe0,0x12,0xe0,0x7c
+                      00106 #define SC_PRN_REL  0xe0,0xf0,0x7c,0xe0,0xf0,0x12 
+                      00107 #define SC_PAUSE    0xe1,0x14,0x77,0xe1,0xf0,0x14,0xf0,0x77
+                      00108 
+                      00109  
+                      00110 ;touches virtuelles
+  00000008            00111 VK_BACK equ     8
+  00000009            00112 VK_TAB equ      9
+  0000001B            00113 VK_ESC equ      27
+  0000000D            00114 VK_ENTER equ    '\r'
+  00000020            00115 VK_SPACE equ    ' ' 
+  00000080            00116 VK_F1 equ       128
+  00000081            00117 VK_F2 equ       129
+  00000082            00118 VK_F3 equ       130
+  00000083            00119 VK_F4 equ       131
+  00000084            00120 VK_F5 equ       132
+  00000085            00121 VK_F6 equ       133
+  00000086            00122 VK_F7 equ       134
+  00000087            00123 VK_F8 equ       135
+  00000088            00124 VK_F9 equ       136
+  0000008A            00125 VK_F10 equ      138
+  0000008B            00126 VK_F11 equ      139
+  0000008C            00127 VK_F12 equ      140
+  0000008D            00128 VK_UP equ       141
+  0000008E            00129 VK_DOWN equ     142
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  7
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+  0000008F            00130 VK_LEFT equ     143
+  00000090            00131 VK_RIGHT equ    144
+  00000091            00132 VK_HOME equ     145
+  00000092            00133 VK_END equ      146
+  00000093            00134 VK_PGUP equ     147
+  00000094            00135 VK_PGDN equ     148
+  00000095            00136 VK_INSERT equ   149
+  00000096            00137 VK_DELETE equ   150
+  00000097            00138 VK_APPS equ     151
+  00000098            00139 VK_PRN  equ     152
+  00000099            00140 VK_PAUSE equ    153
+  0000009A            00141 VK_NLOCK equ    154 ; numlock
+  0000009B            00142 VK_CLOCK equ    155 ; capslock
+  0000009C            00143 VK_LSHIFT equ   156
+  0000009D            00144 VK_LCTRL equ    157
+  0000009E            00145 VK_LALT equ     158
+  0000009F            00146 VK_RSHIFT equ   159
+  000000A0            00147 VK_LGUI equ     160
+  000000A1            00148 VK_RCTRL equ    161
+  000000A2            00149 VK_RGUI equ     162
+  000000A3            00150 VK_RALT equ     163
+  000000A4            00151 VK_SCROLL equ   164
+  000000A5            00152 VK_NUM  equ     165 
+  000000A8            00153 VK_CAPS equ     168 
+                      00154 
+                      00028     
+                      00029     
+                      00030     code
+                      00031 ;table de correspondance code clavier -> code ASCII    
+                      00032 ;  dt code_clavier,code_ascii 
+  0000                00033     global std_codes
+0000                  00034 std_codes:
+0000   000B           00035    brw
+0001   341C 3441      00036    dt 0x1c,A_AU ;'A' 
+0003   3432 3442      00037    dt 0x32,A_BU ;'B'
+0005   3421 3443      00038    dt 0x21,A_CU ;'C'
+0007   3423 3444      00039    dt 0x23,A_DU ;'D'
+0009   3424 3445      00040    dt 0x24,A_EU ;'E'
+000B   342B 3446      00041    dt 0x2b,A_FU ;'F'
+000D   3434 3447      00042    dt 0x34,A_GU ;'G'
+000F   3433 3448      00043    dt 0x33,A_HU ;'H'
+0011   3443 3449      00044    dt 0x43,A_IU ;'I'
+0013   343B 344A      00045    dt 0x3B,A_JU ;'J'
+0015   3442 344B      00046    dt 0x42,A_KU ;'K'
+0017   344B 344C      00047    dt 0x4b,A_LU ;'L'
+0019   343A 344D      00048    dt 0x3a,A_MU ;'M'
+001B   3431 344E      00049    dt 0x31,A_NU ;'N'
+001D   3444 344F      00050    dt 0x44,A_OU ;'O'
+001F   344D 3450      00051    dt 0x4d,A_PU ;'P'
+0021   3415 3451      00052    dt 0x15,A_QU ;'Q'
+0023   342D 3452      00053    dt 0x2d,A_RU ;'R'
+0025   341B 3453      00054    dt 0x1b,A_SU ;'S'
+0027   342C 3454      00055    dt 0x2c,A_TU ;'T'
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0029   343C 3455      00056    dt 0x3c,A_UU ;'U'
+002B   342A 3456      00057    dt 0x2a,A_VU ;'V'
+002D   341D 3457      00058    dt 0x1d,A_WU ;'W'
+002F   3422 3458      00059    dt 0x22,A_XU ;'X'
+0031   3435 3459      00060    dt 0x35,A_YU ;'Y'
+0033   341A 345A      00061    dt 0x1a,A_ZU ;'Z'
+0035   3445 3430      00062    dt 0x45,A_0  ;'0'
+0037   3416 3431      00063    dt 0x16,A_1  ;'1'
+0039   341E 3432      00064    dt 0x1e,A_2  ;'2'
+003B   3426 3433      00065    dt 0x26,A_3  ;'3'
+003D   3425 3434      00066    dt 0x25,A_4  ;'4'
+003F   342E 3435      00067    dt 0x2e,A_5  ;'5'
+0041   3436 3436      00068    dt 0x36,A_6  ;'6'
+0043   343D 3437      00069    dt 0x3d,A_7  ;'7'
+0045   343E 3438      00070    dt 0x3e,A_8  ;'8'
+0047   3446 3439      00071    dt 0x46,A_9  ;'9'
+0049   340E 3460      00072    dt 0x0e,A_ACUT   ;'`'
+004B   344E 342D      00073    dt 0x4e,A_DASH   ;'-'
+004D   3455 343D      00074    dt 0x55,A_EQUAL  ;'='
+004F   345D 345C      00075    dt 0x5d,A_BSLA   ;'\\'
+0051   3454 345B      00076    dt 0x54,A_LBRK   ;'['
+0053   345B 345D      00077    dt 0x5b,A_RBRK   ;']'
+0055   344C 343B      00078    dt 0x4c,A_SCOL   ;';'
+0057   3452 3427      00079    dt 0x52,A_QUOT   ;'\''
+0059   3441 342C      00080    dt 0x41,A_COMM   ;','
+005B   3449 342E      00081    dt 0x49,A_DOT    ;'.'
+005D   347C 342A      00082    dt 0x7c,A_STAR   ;'*'
+005F   3479 342B      00083    dt 0x79,A_PLUS   ;'+'
+0061   3429 3420      00084    dt 0x29,A_SPACE  ;' '
+0063   345A 340D      00085    dt SC_ENTER,A_CR ;'\r'
+0065   3466 3408      00086    dt SC_BKSP,A_BKSP    ;back space
+0067   340D 3409      00087    dt SC_TAB,A_TAB  ; tabulation
+0069   3476 341B      00088    dt SC_ESC,A_ESC  ; échappement
+006B   3477 34A5      00089    dt SC_NUM,VK_NUM ; num lock
+006D   3470 3430      00090    dt SC_KP0,A_0    ;'0'
+006F   3469 3431      00091    dt SC_KP1,A_1    ;'1'
+0071   3472 3432      00092    dt SC_KP2,A_2    ;'2'
+0073   347A 3433      00093    dt SC_KP3,A_3    ;'3'
+0075   346B 3434      00094    dt SC_KP4,A_4    ;'4'
+0077   3473 3435      00095    dt SC_KP5,A_5    ;'5'
+0079   3474 3436      00096    dt SC_KP6,A_6    ;'6'
+007B   346C 3437      00097    dt SC_KP7,A_7    ;'7'
+007D   3475 3438      00098    dt SC_KP8,A_8    ;'8'
+007F   347D 3439      00099    dt SC_KP9,A_9    ;'9'
+0081   347C 342A      00100    dt SC_KPMUL,A_STAR   ;'*'
+0083   344A 342F      00101    dt SC_KPDIV,A_SLASH  ;'/'
+0085   3479 342B      00102    dt SC_KPPLUS,A_PLUS  ;'+'
+0087   347B 342D      00103    dt SC_KPMINUS,A_DASH ;'-'
+0089   3471 342E      00104    dt SC_KPDOT,A_DOT    ;'.'
+008B   345A 340D      00105    dt SC_KPENTER,A_CR   ;'\r'
+008D   3405 3480      00106    dt SC_F1,VK_F1
+008F   3406 3481      00107    dt SC_F2,VK_F2
+0091   3404 3482      00108    dt SC_F3,VK_F3
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0093   340C 3483      00109    dt SC_F4,VK_F4
+0095   3403 3484      00110    dt SC_F5,VK_F5
+0097   340B 3485      00111    dt SC_F6,VK_F6
+0099   3483 3486      00112    dt SC_F7,VK_F7
+009B   340A 3487      00113    dt SC_F8,VK_F8
+009D   3401 3488      00114    dt SC_F9,VK_F9
+009F   3409 348A      00115    dt SC_F10,VK_F10
+00A1   3478 348B      00116    dt SC_F11,VK_F11
+00A3   3407 348C      00117    dt SC_F12,VK_F12
+00A5   3412 349C      00118    dt SC_LSHIFT,VK_LSHIFT
+00A7   3459 349F      00119    dt SC_RSHIFT,VK_RSHIFT
+00A9   3414 349D      00120    dt SC_LCTRL,VK_LCTRL
+00AB   3411 349E      00121    dt SC_LALT,VK_LALT
+00AD   3412 349C      00122    dt SC_LSHIFT,VK_LSHIFT
+00AF   3459 349F      00123    dt SC_RSHIFT,VK_RSHIFT
+00B1   3458 34A8      00124    dt SC_CAPS,VK_CAPS
+00B3   3400           00125    dt 0
+                      00126 
+                      00127 ;; codes étendus
+  0000                00128    global xt_codes
+00B4                  00129 xt_codes:
+00B4   000B           00130     brw
+00B5   3414 34A1      00131     dt SC_RCTRL,VK_RCTRL
+00B7   341F 34A0      00132     dt SC_LGUI,VK_LGUI
+00B9   3427 34A2      00133     dt SC_RGUI,VK_RGUI 
+00BB   3411 34A3      00134     dt SC_RALT,VK_RALT
+00BD   342F 3497      00135     dt SC_APPS,VK_APPS
+00BF   3475 348D      00136     dt SC_UP,VK_UP
+00C1   3472 348E      00137     dt SC_DOWN,VK_DOWN
+00C3   346B 348F      00138     dt SC_LEFT,VK_LEFT
+00C5   3474 3490      00139     dt SC_RIGHT,VK_RIGHT
+00C7   3470 3495      00140     dt SC_INSERT,VK_INSERT
+00C9   346C 3491      00141     dt SC_HOME,VK_HOME
+00CB   347D 3493      00142     dt SC_PGUP,VK_PGUP
+00CD   347A 3494      00143     dt SC_PGDN,VK_PGDN
+00CF   3471 347F      00144     dt SC_DEL,A_DEL
+00D1   3469 3492      00145     dt SC_END,VK_END
+00D3   344A 342F      00146     dt SC_KPDIV,'/'
+00D5   345A 340D      00147     dt SC_KPENTER,'\r'
+00D7   3412 3498      00148     dt 0x12,VK_PRN
+00D9   347C 3400      00149     dt 0x7c,0
+00DB   3400           00150     dt 0
+                      00151     
+                      00152    
+                      00153 ;table des caractères avec touche SHIFT enfoncée
+  0000                00154    global table_shifted
+00DC                  00155 table_shifted:
+00DC   000B           00156    brw
+00DD   3431 3421      00157    dt A_1,A_EXCLA   ;'!'
+00DF   3432 3440      00158    dt A_2,A_AROB    ;'@'
+00E1   3433 3423      00159    dt A_3,A_SHARP   ;'#'
+00E3   3434 3424      00160    dt A_4,A_DOLLR   ;'$'
+00E5   3435 3425      00161    dt A_5,A_PRCNT   ;'%'
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00E7   3436 345E      00162    dt A_6,A_CIRC    ;'^'
+00E9   3437 3426      00163    dt A_7,A_AMP     ;'&'
+00EB   3438 342A      00164    dt A_8,A_STAR    ;'*'
+00ED   3439 3428      00165    dt A_9,A_LPAR    ;'('
+00EF   3430 3429      00166    dt A_0,A_RPAR    ;')'
+00F1   342D 345F      00167    dt A_DASH,A_UNDR ;'_'
+00F3   343D 342B      00168    dt A_EQUAL,A_PLUS    ;'+'
+00F5   3460 347E      00169    dt A_ACUT,A_TILD ;'~'
+00F7   3427 3422      00170    dt A_QUOT,A_DQUOT    ;'"'
+00F9   342C 343C      00171    dt A_COMM,A_LT   ;'<'
+00FB   342E 343E      00172    dt A_DOT,A_GT    ;'>'
+00FD   342F 343F      00173    dt A_SLASH,A_QUST    ;'?'
+00FF   345C 347C      00174    dt A_BSLA,A_PIPE ;'|'
+0101   343B 343A      00175    dt A_SCOL,A_COL  ;':'
+0103   345B 347B      00176    dt A_LBRK,A_LBRC ;'[','{'
+0105   345D 347D      00177    dt A_RBRK,A_RBRC ;']','}'
+0107   3400           00178    dt 0
+                      00179    
+                      00180 ;table des caractères avec touche ALTCHAR enfoncée
+  0000                00181    global table_altchar
+0108                  00182 table_altchar:
+0108   000B           00183    brw
+0109   3431 345C      00184    dt A_1,A_BSLA    ;'\\'
+010B   3432 3440      00185    dt A_2,A_AROB    ;'2','@'
+010D   3433 342F      00186    dt A_3,A_SLASH   ;'3','/'
+010F   3436 343F      00187    dt A_6,A_QUST    ;'6','?'
+0111   3437 347C      00188    dt A_7,A_PIPE    ;'7','|'
+0113   3439 347B      00189    dt A_9,A_LBRC    ;'9','{'
+0115   3430 347D      00190    dt A_0,A_RBRC    ;'0','}'
+0117   3400           00191    dt 0
+                      00192    
+                      00193 ; altération par touche CTRL    
+  0000                00194     global table_control
+0118                  00195 table_control: 
+0118   000B           00196     brw
+0119   3443 3411      00197     dt A_CU, A_DC1  ; CTRL-C
+011B   344A 340A      00198     dt A_JU, A_LF   ; CTRL-J
+011D   344D 340D      00199     dt A_MU, A_CR   ; CTRL-M
+011F   3408 3412      00200     dt A_BKSP,A_DC2 ; CTRL-BACKSPACE
+0121   3447 3407      00201     dt A_GU,A_BEL   ; CTRL-G
+0123   3400           00202     dt 0
+                      00203     
+                      00204    end
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE 11
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+A_0                               00000030
+A_1                               00000031
+A_2                               00000032
+A_3                               00000033
+A_4                               00000034
+A_5                               00000035
+A_6                               00000036
+A_7                               00000037
+A_8                               00000038
+A_9                               00000039
+A_ACK                             00000006
+A_ACUT                            00000060
+A_AL                              00000061
+A_AMP                             00000026
+A_AROB                            00000040
+A_AU                              00000041
+A_BEL                             00000007
+A_BKSP                            00000008
+A_BL                              00000062
+A_BSLA                            0000005C
+A_BU                              00000042
+A_CAN                             00000018
+A_CIRC                            0000005E
+A_CL                              00000063
+A_COL                             0000003A
+A_COMM                            0000002C
+A_CR                              0000000D
+A_CU                              00000043
+A_DASH                            0000002D
+A_DC1                             00000011
+A_DC2                             00000012
+A_DC3                             00000013
+A_DC4                             00000014
+A_DEL                             0000007F
+A_DL                              00000064
+A_DLE                             00000010
+A_DOLLR                           00000024
+A_DOT                             0000002E
+A_DQUOT                           00000022
+A_DU                              00000044
+A_EL                              00000065
+A_EM                              00000019
+A_ENQ                             00000005
+A_EOT                             00000004
+A_EQUAL                           0000003D
+A_ESC                             0000001B
+A_ETB                             00000017
+A_ETX                             00000003
+A_EU                              00000045
+A_EXCLA                           00000021
+A_FF                              0000000C
+A_FL                              00000066
+A_FS                              0000001C
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE 12
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+A_FU                              00000046
+A_GL                              00000067
+A_GS                              0000001D
+A_GT                              0000003E
+A_GU                              00000047
+A_HL                              00000068
+A_HU                              00000048
+A_IL                              00000069
+A_IU                              00000049
+A_JL                              0000006A
+A_JU                              0000004A
+A_KL                              0000006B
+A_KU                              0000004B
+A_LBRC                            0000007B
+A_LBRK                            0000005B
+A_LF                              0000000A
+A_LL                              0000006C
+A_LPAR                            00000028
+A_LT                              0000003C
+A_LU                              0000004C
+A_ML                              0000006D
+A_MU                              0000004D
+A_NAK                             00000015
+A_NL                              0000006E
+A_NU                              0000004E
+A_NUL                             00000000
+A_OL                              0000006F
+A_OU                              0000004F
+A_PIPE                            0000007C
+A_PL                              00000070
+A_PLUS                            0000002B
+A_PRCNT                           00000025
+A_PU                              00000050
+A_QL                              00000071
+A_QU                              00000051
+A_QUOT                            00000027
+A_QUST                            0000003F
+A_RBRC                            0000007D
+A_RBRK                            0000005D
+A_RL                              00000072
+A_RPAR                            00000029
+A_RS                              0000001E
+A_RU                              00000052
+A_SCOL                            0000003B
+A_SHARP                           00000023
+A_SI                              0000000F
+A_SL                              00000073
+A_SLASH                           0000002F
+A_SO                              0000000E
+A_SOH                             00000001
+A_SPACE                           00000020
+A_STAR                            0000002A
+A_STX                             00000002
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE 13
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+A_SU                              00000053
+A_SUB                             0000001A
+A_SYN                             00000016
+A_TAB                             00000009
+A_TILD                            0000007E
+A_TL                              00000074
+A_TU                              00000054
+A_UL                              00000075
+A_UNDR                            0000005F
+A_US                              0000001F
+A_UU                              00000055
+A_VL                              00000076
+A_VT                              0000000B
+A_VU                              00000056
+A_WL                              00000077
+A_WU                              00000057
+A_XL                              00000078
+A_XU                              00000058
+A_YL                              00000079
+A_YU                              00000059
+A_ZL                              0000007A
+A_ZU                              0000005A
+BAT_OK                            000000AA
+KBD_ACK                           000000FA
+KBD_LED                           000000ED
+KBD_RESEND                        000000FE
+KBD_RESET                         000000FF
+KEY_REL                           000000F0
+SC_APPS                           0000002F
+SC_BKSP                           00000066
+SC_CAPS                           00000058
+SC_DEL                            00000071
+SC_DOWN                           00000072
+SC_END                            00000069
+SC_ENTER                          0000005A
+SC_ESC                            00000076
+SC_F1                             00000005
+SC_F10                            00000009
+SC_F11                            00000078
+SC_F12                            00000007
+SC_F2                             00000006
+SC_F3                             00000004
+SC_F4                             0000000C
+SC_F5                             00000003
+SC_F6                             0000000B
+SC_F7                             00000083
+SC_F8                             0000000A
+SC_F9                             00000001
+SC_HOME                           0000006C
+SC_INSERT                         00000070
+SC_KP0                            00000070
+SC_KP1                            00000069
+SC_KP2                            00000072
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE 14
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+SC_KP3                            0000007A
+SC_KP4                            0000006B
+SC_KP5                            00000073
+SC_KP6                            00000074
+SC_KP7                            0000006C
+SC_KP8                            00000075
+SC_KP9                            0000007D
+SC_KPDIV                          0000004A
+SC_KPDOT                          00000071
+SC_KPENTER                        0000005A
+SC_KPMINUS                        0000007B
+SC_KPMUL                          0000007C
+SC_KPPLUS                         00000079
+SC_LALT                           00000011
+SC_LCTRL                          00000014
+SC_LEFT                           0000006B
+SC_LGUI                           0000001F
+SC_LSHIFT                         00000012
+SC_NUM                            00000077
+SC_PAUSE                          0xe1,0x14,0x77,0xe1,0xf0,0x14,0xf0,0x77
+SC_PGDN                           0000007A
+SC_PGUP                           0000007D
+SC_PRN                            0xe0,0x12,0xe0,0x7c
+SC_PRN_REL                        0xe0,0xf0,0x7c,0xe0,0xf0,0x12
+SC_RALT                           00000011
+SC_RCTRL                          00000014
+SC_RGUI                           00000027
+SC_RIGHT                          00000074
+SC_RSHIFT                         00000059
+SC_SCROLL                         0000007E
+SC_TAB                            0000000D
+SC_UP                             00000075
+VK_APPS                           00000097
+VK_BACK                           00000008
+VK_CAPS                           000000A8
+VK_CLOCK                          0000009B
+VK_DELETE                         00000096
+VK_DOWN                           0000008E
+VK_END                            00000092
+VK_ENTER                          0000000D
+VK_ESC                            0000001B
+VK_F1                             00000080
+VK_F10                            0000008A
+VK_F11                            0000008B
+VK_F12                            0000008C
+VK_F2                             00000081
+VK_F3                             00000082
+VK_F4                             00000083
+VK_F5                             00000084
+VK_F6                             00000085
+VK_F7                             00000086
+VK_F8                             00000087
+VK_F9                             00000088
+MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE 15
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+VK_HOME                           00000091
+VK_INSERT                         00000095
+VK_LALT                           0000009E
+VK_LCTRL                          0000009D
+VK_LEFT                           0000008F
+VK_LGUI                           000000A0
+VK_LSHIFT                         0000009C
+VK_NLOCK                          0000009A
+VK_NUM                            000000A5
+VK_PAUSE                          00000099
+VK_PGDN                           00000094
+VK_PGUP                           00000093
+VK_PRN                            00000098
+VK_RALT                           000000A3
+VK_RCTRL                          000000A1
+VK_RGUI                           000000A2
+VK_RIGHT                          00000090
+VK_RSHIFT                         0000009F
+VK_SCROLL                         000000A4
+VK_SPACE                          00000020
+VK_TAB                            00000009
+VK_UP                             0000008D
+XT2_KEY                           000000E1
+XT_KEY                            000000E0
+__12F1572                         00000001
+std_codes                         00000000
+table_altchar                     00000108
+table_control                     00000118
+table_shifted                     000000DC
+xt_codes                          000000B4
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+
