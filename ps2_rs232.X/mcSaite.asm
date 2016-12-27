@@ -175,6 +175,14 @@ table_shifted:
    dt A_SCOL,A_COL  ;':'
    dt A_LBRK,A_LBRC ;'[','{'
    dt A_RBRK,A_RBRC ;']','}'
+   dt VK_UP,VK_SUP  ; <SHIFT>-<UP>
+   dt VK_DOWN,VK_SDOWN ; <SHIFT>-<DOWN>
+   dt VK_LEFT,VK_SLEFT ; <SHIFT>-<LEFT>
+   dt VK_RIGHT,VK_SRIGHT ; <SHIFT>-<RIGHT>
+   dt VK_HOME,VK_SHOME ; <SHIFT>-<HOME>
+   dt VK_END,VK_SEND ; <SHIFT>-<END>
+   dt VK_PGUP,VK_SPGUP ; <SHIFT>-<PGUP>
+   dt VK_PGDN,VK_SPGDN ; <SHIFT>-<PGDN>
    dt 0
    
 ;table des caractères avec touche ALTCHAR enfoncée
@@ -199,6 +207,14 @@ table_control:
     dt A_MU, A_CR   ; CTRL-M
     dt A_BKSP,A_DC2 ; CTRL-BACKSPACE
     dt A_GU,A_BEL   ; CTRL-G
+    dt VK_UP,VK_CUP  ; <CTRL>-<UP>
+    dt VK_DOWN,VK_CDOWN ; <CTRL>-<DOWN>
+    dt VK_LEFT,VK_CLEFT ; <CTRL>-<LEFT>
+    dt VK_RIGHT,VK_CRIGHT ; <CTRL>-<RIGHT>
+    dt VK_HOME,VK_CHOME ; <CTRL>-<HOME>
+    dt VK_END,VK_CEND ; <CTRL>-<END>
+    dt VK_PGUP,VK_CPGUP ; <CTRL>-<PGUP>
+    dt VK_PGDN,VK_CPGDN ; <CTRL>-<PGDN>
     dt 0
     
    end

@@ -1,4 +1,4 @@
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  1
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00025 ;    along with ps2_rs232.  If not, see <https://www.gnu.org/licenses/>.
                       00026 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                       00027 
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  2
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   0000002D            00078 A_DASH  equ     45  ; '-'
   0000002E            00079 A_DOT   equ     46  ; '.'
   0000002F            00080 A_SLASH equ     47  ; '/'
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  3
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   00000062            00131 A_BL    equ     98  ; 'b'
   00000063            00132 A_CL    equ     99  ; 'c'
   00000064            00133 A_DL    equ     100 ; 'd'
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  4
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00021 ;    ps2_rs232 is distributed in the hope that it will be useful,
                       00022 ;    but WITHOUT ANY WARRANTY; without even the implied warranty of
                       00023 ;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  5
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -293,7 +293,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   00000069            00074 SC_KP1 equ          0x69    ;standard
   00000072            00075 SC_KP2 equ          0x72    ;standard
   0000007A            00076 SC_KP3 equ          0x7a    ;standard
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  6
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -352,7 +352,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   0000008C            00127 VK_F12 equ      140
   0000008D            00128 VK_UP equ       141
   0000008E            00129 VK_DOWN equ     142
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  7
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -381,8 +381,26 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   000000A3            00150 VK_RALT equ     163
   000000A4            00151 VK_SCROLL equ   164
   000000A5            00152 VK_NUM  equ     165 
-  000000A8            00153 VK_CAPS equ     168 
-                      00154 
+  000000A8            00153 VK_CAPS equ     168
+                      00154 ;<SHIFT>-<KEY> 
+  000000A9            00155 VK_SUP  equ     169
+  000000AA            00156 VK_SDOWN equ    170
+  000000AB            00157 VK_SLEFT equ    171
+  000000AC            00158 VK_SRIGHT equ   172
+  000000AD            00159 VK_SHOME equ    173
+  000000AE            00160 VK_SEND equ     174
+  000000AF            00161 VK_SPGUP equ    175
+  000000B0            00162 VK_SPGDN equ    176
+                      00163 ;<CTRL>-<KEY>
+  000000B1            00164 VK_CUP  equ     177
+  000000B2            00165 VK_CDOWN equ    178     
+  000000B3            00166 VK_CLEFT equ    179
+  000000B4            00167 VK_CRIGHT equ   180
+  000000B5            00168 VK_CHOME equ    181
+  000000B6            00169 VK_CEND equ     182
+  000000B7            00170 VK_CPGUP equ    183
+  000000B8            00171 VK_CPGDN equ    184
+                      00172  
                       00028     
                       00029     
                       00030     code
@@ -393,6 +411,12 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0000   000B           00035    brw
 0001   341C 3441      00036    dt 0x1c,A_AU ;'A' 
 0003   3432 3442      00037    dt 0x32,A_BU ;'B'
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
 0005   3421 3443      00038    dt 0x21,A_CU ;'C'
 0007   3423 3444      00039    dt 0x23,A_DU ;'D'
 0009   3424 3445      00040    dt 0x24,A_EU ;'E'
@@ -411,12 +435,6 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0023   342D 3452      00053    dt 0x2d,A_RU ;'R'
 0025   341B 3453      00054    dt 0x1b,A_SU ;'S'
 0027   342C 3454      00055    dt 0x2c,A_TU ;'T'
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  8
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
 0029   343C 3455      00056    dt 0x3c,A_UU ;'U'
 002B   342A 3456      00057    dt 0x2a,A_VU ;'V'
 002D   341D 3457      00058    dt 0x1d,A_WU ;'W'
@@ -452,6 +470,12 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0069   3476 341B      00088    dt SC_ESC,A_ESC  ; échappement
 006B   3477 34A5      00089    dt SC_NUM,VK_NUM ; num lock
 006D   3470 3430      00090    dt SC_KP0,A_0    ;'0'
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
 006F   3469 3431      00091    dt SC_KP1,A_1    ;'1'
 0071   3472 3432      00092    dt SC_KP2,A_2    ;'2'
 0073   347A 3433      00093    dt SC_KP3,A_3    ;'3'
@@ -470,12 +494,6 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 008D   3405 3480      00106    dt SC_F1,VK_F1
 008F   3406 3481      00107    dt SC_F2,VK_F2
 0091   3404 3482      00108    dt SC_F3,VK_F3
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE  9
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
 0093   340C 3483      00109    dt SC_F4,VK_F4
 0095   3403 3484      00110    dt SC_F5,VK_F5
 0097   340B 3485      00111    dt SC_F6,VK_F6
@@ -511,6 +529,12 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00C9   346C 3491      00141     dt SC_HOME,VK_HOME
 00CB   347D 3493      00142     dt SC_PGUP,VK_PGUP
 00CD   347A 3494      00143     dt SC_PGDN,VK_PGDN
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
 00CF   3471 347F      00144     dt SC_DEL,A_DEL
 00D1   3469 3492      00145     dt SC_END,VK_END
 00D3   344A 342F      00146     dt SC_KPDIV,'/'
@@ -529,12 +553,6 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00E1   3433 3423      00159    dt A_3,A_SHARP   ;'#'
 00E3   3434 3424      00160    dt A_4,A_DOLLR   ;'$'
 00E5   3435 3425      00161    dt A_5,A_PRCNT   ;'%'
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE 10
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
 00E7   3436 345E      00162    dt A_6,A_CIRC    ;'^'
 00E9   3437 3426      00163    dt A_7,A_AMP     ;'&'
 00EB   3438 342A      00164    dt A_8,A_STAR    ;'*'
@@ -551,34 +569,56 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0101   343B 343A      00175    dt A_SCOL,A_COL  ;':'
 0103   345B 347B      00176    dt A_LBRK,A_LBRC ;'[','{'
 0105   345D 347D      00177    dt A_RBRK,A_RBRC ;']','}'
-0107   3400           00178    dt 0
-                      00179    
-                      00180 ;table des caractères avec touche ALTCHAR enfoncée
-  0000                00181    global table_altchar
-0108                  00182 table_altchar:
-0108   000B           00183    brw
-0109   3431 345C      00184    dt A_1,A_BSLA    ;'\\'
-010B   3432 3440      00185    dt A_2,A_AROB    ;'2','@'
-010D   3433 342F      00186    dt A_3,A_SLASH   ;'3','/'
-010F   3436 343F      00187    dt A_6,A_QUST    ;'6','?'
-0111   3437 347C      00188    dt A_7,A_PIPE    ;'7','|'
-0113   3439 347B      00189    dt A_9,A_LBRC    ;'9','{'
-0115   3430 347D      00190    dt A_0,A_RBRC    ;'0','}'
-0117   3400           00191    dt 0
-                      00192    
-                      00193 ; altération par touche CTRL    
-  0000                00194     global table_control
-0118                  00195 table_control: 
-0118   000B           00196     brw
-0119   3443 3411      00197     dt A_CU, A_DC1  ; CTRL-C
-011B   344A 340A      00198     dt A_JU, A_LF   ; CTRL-J
-011D   344D 340D      00199     dt A_MU, A_CR   ; CTRL-M
-011F   3408 3412      00200     dt A_BKSP,A_DC2 ; CTRL-BACKSPACE
-0121   3447 3407      00201     dt A_GU,A_BEL   ; CTRL-G
-0123   3400           00202     dt 0
-                      00203     
-                      00204    end
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE 11
+0107   348D 34A9      00178    dt VK_UP,VK_SUP  ; <SHIFT>-<UP>
+0109   348E 34AA      00179    dt VK_DOWN,VK_SDOWN ; <SHIFT>-<DOWN>
+010B   348F 34AB      00180    dt VK_LEFT,VK_SLEFT ; <SHIFT>-<LEFT>
+010D   3490 34AC      00181    dt VK_RIGHT,VK_SRIGHT ; <SHIFT>-<RIGHT>
+010F   3491 34AD      00182    dt VK_HOME,VK_SHOME ; <SHIFT>-<HOME>
+0111   3492 34AE      00183    dt VK_END,VK_SEND ; <SHIFT>-<END>
+0113   3493 34AF      00184    dt VK_PGUP,VK_SPGUP ; <SHIFT>-<PGUP>
+0115   3494 34B0      00185    dt VK_PGDN,VK_SPGDN ; <SHIFT>-<PGDN>
+0117   3400           00186    dt 0
+                      00187    
+                      00188 ;table des caractères avec touche ALTCHAR enfoncée
+  0000                00189    global table_altchar
+0118                  00190 table_altchar:
+0118   000B           00191    brw
+0119   3431 345C      00192    dt A_1,A_BSLA    ;'\\'
+011B   3432 3440      00193    dt A_2,A_AROB    ;'2','@'
+011D   3433 342F      00194    dt A_3,A_SLASH   ;'3','/'
+011F   3436 343F      00195    dt A_6,A_QUST    ;'6','?'
+0121   3437 347C      00196    dt A_7,A_PIPE    ;'7','|'
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE 11
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0123   3439 347B      00197    dt A_9,A_LBRC    ;'9','{'
+0125   3430 347D      00198    dt A_0,A_RBRC    ;'0','}'
+0127   3400           00199    dt 0
+                      00200    
+                      00201 ; altération par touche CTRL    
+  0000                00202     global table_control
+0128                  00203 table_control: 
+0128   000B           00204     brw
+0129   3443 3411      00205     dt A_CU, A_DC1  ; CTRL-C
+012B   344A 340A      00206     dt A_JU, A_LF   ; CTRL-J
+012D   344D 340D      00207     dt A_MU, A_CR   ; CTRL-M
+012F   3408 3412      00208     dt A_BKSP,A_DC2 ; CTRL-BACKSPACE
+0131   3447 3407      00209     dt A_GU,A_BEL   ; CTRL-G
+0133   348D 34B1      00210     dt VK_UP,VK_CUP  ; <CTRL>-<UP>
+0135   348E 34B2      00211     dt VK_DOWN,VK_CDOWN ; <CTRL>-<DOWN>
+0137   348F 34B3      00212     dt VK_LEFT,VK_CLEFT ; <CTRL>-<LEFT>
+0139   3490 34B4      00213     dt VK_RIGHT,VK_CRIGHT ; <CTRL>-<RIGHT>
+013B   3491 34B5      00214     dt VK_HOME,VK_CHOME ; <CTRL>-<HOME>
+013D   3492 34B6      00215     dt VK_END,VK_CEND ; <CTRL>-<END>
+013F   3493 34B7      00216     dt VK_PGUP,VK_CPGUP ; <CTRL>-<PGUP>
+0141   3494 34B8      00217     dt VK_PGDN,VK_CPGDN ; <CTRL>-<PGDN>
+0143   3400           00218     dt 0
+                      00219     
+                      00220    end
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE 12
 
 
 SYMBOL TABLE
@@ -637,7 +677,7 @@ A_EXCLA                           00000021
 A_FF                              0000000C
 A_FL                              00000066
 A_FS                              0000001C
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE 12
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE 13
 
 
 SYMBOL TABLE
@@ -696,7 +736,7 @@ A_SOH                             00000001
 A_SPACE                           00000020
 A_STAR                            0000002A
 A_STX                             00000002
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE 13
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE 14
 
 
 SYMBOL TABLE
@@ -755,7 +795,7 @@ SC_INSERT                         00000070
 SC_KP0                            00000070
 SC_KP1                            00000069
 SC_KP2                            00000072
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE 14
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE 15
 
 
 SYMBOL TABLE
@@ -796,7 +836,15 @@ SC_UP                             00000075
 VK_APPS                           00000097
 VK_BACK                           00000008
 VK_CAPS                           000000A8
+VK_CDOWN                          000000B2
+VK_CEND                           000000B6
+VK_CHOME                          000000B5
+VK_CLEFT                          000000B3
 VK_CLOCK                          0000009B
+VK_CPGDN                          000000B8
+VK_CPGUP                          000000B7
+VK_CRIGHT                         000000B4
+VK_CUP                            000000B1
 VK_DELETE                         00000096
 VK_DOWN                           0000008E
 VK_END                            00000092
@@ -806,6 +854,12 @@ VK_F1                             00000080
 VK_F10                            0000008A
 VK_F11                            0000008B
 VK_F12                            0000008C
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   12-27-2016  16:14:54         PAGE 16
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
 VK_F2                             00000081
 VK_F3                             00000082
 VK_F4                             00000083
@@ -814,12 +868,6 @@ VK_F6                             00000085
 VK_F7                             00000086
 VK_F8                             00000087
 VK_F9                             00000088
-MPASM 5.71  /HOME/JACQUES/MPLABXPROJECTS/PS2   12-27-2016  10:35:50         PAGE 15
-
-
-SYMBOL TABLE
-  LABEL                             VALUE 
-
 VK_HOME                           00000091
 VK_INSERT                         00000095
 VK_LALT                           0000009E
@@ -839,15 +887,23 @@ VK_RGUI                           000000A2
 VK_RIGHT                          00000090
 VK_RSHIFT                         0000009F
 VK_SCROLL                         000000A4
+VK_SDOWN                          000000AA
+VK_SEND                           000000AE
+VK_SHOME                          000000AD
+VK_SLEFT                          000000AB
 VK_SPACE                          00000020
+VK_SPGDN                          000000B0
+VK_SPGUP                          000000AF
+VK_SRIGHT                         000000AC
+VK_SUP                            000000A9
 VK_TAB                            00000009
 VK_UP                             0000008D
 XT2_KEY                           000000E1
 XT_KEY                            000000E0
 __12F1572                         00000001
 std_codes                         00000000
-table_altchar                     00000108
-table_control                     00000118
+table_altchar                     00000118
+table_control                     00000128
 table_shifted                     000000DC
 xt_codes                          000000B4
 
