@@ -7,6 +7,9 @@ projet de microcontrôleur, ce module pour y être intégré. Il prend en charge
 le clavier ainsi que la conversion des codes claviers en codes ASCII. Les touches qui n'ont 
 pas de correspondance dans le code ASCII renvoient un code d'une valeur supérieur à 127.
 
+Les relâchement de touches sont ignorés. Les touches ALT,CTRL,SHIFT,NUM et CAPS sont traîtées
+par le PIC12F1572 aucun code n'est retransmis pour ces touches.
+
 ## codes des touches virtuelles
 
 touche | nom | code
