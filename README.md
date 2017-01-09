@@ -58,7 +58,7 @@ CTRL-PGDN | VK_CPGDN | 	184
 
 ## schématique
 
-![schematic](schematic.png)
+![schematic](ps2_rs232_schematic.png)
 
 
 
