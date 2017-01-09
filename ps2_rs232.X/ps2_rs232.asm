@@ -40,7 +40,8 @@
 FOSC equ 4000000 ; 4Mhz 
 FCY  equ 1000000 ; 1Mhz
 BAUD equ 9600
- 
+
+NRST equ RA5
 TX equ RA4
 CLK equ RA2
 DAT equ RA1
@@ -335,6 +336,22 @@ set_leds:
     btfss kbd_state,F_ACK
     bra $-1
     return
+
+;signal_reset
+; la combinaison de touches
+; <CTRL>+<ALT>+<DEL> a été enfoncée.
+; la broche NRST est mise à zéro
+; pour 100µSec pour signaler à l'hôte
+; une demande de réinitialisation    
+signal_reset:
+    banksel PORTA
+    bcf PORTA, NRST
+    movlw 25
+    nop
+    decfsz WREG
+    goto $-2
+    bsf PORTA, NRST
+    return
     
     
 ; attend la séquence des codes PAUSE    
@@ -511,6 +528,7 @@ code_convert:
     case VK_LALT, altkey
     case VK_RALT, altkey
     case VK_NUM, numkey
+    case A_DEL, delete
     btfsc rxflags,F_REL
     bra ignore_code
     btfsc kbd_state,F_CTRL
@@ -519,6 +537,12 @@ code_convert:
     bra alt_down
     call if_shifted
     call uart_send
+    bra clear_flags
+delete:
+    btfsc kbd_state,F_CTRL
+    btfss kbd_state,F_ALT
+    bra $-4
+    call signal_reset
     bra clear_flags
 ctrl_down:
     search _control
@@ -586,11 +610,14 @@ init:
     banksel OSCCON
     movlw 0xD<<IRCF0 ; 1Mhz x 4 (PLL)
     movwf OSCCON
+    banksel LATA
+    bsf LATA, NRST
 ; configure TX sur la broche RA4    
     banksel APFCON
     bsf APFCON, TXCKSEL
     banksel TRISA
     bcf TRISA, TX
+    bcf TRISA, NRST
 ; configuration du EUSART
 ; mode asynchrone 9600 BAUD
 ; communication à sens unique    
@@ -613,11 +640,11 @@ init:
     banksel ODCONA
     bsf ODCONA, CLK
     bsf ODCONA, DAT
-; on désactive les pullup sur ces 2 là.
+; on désactive les pullup sur CLK et DAT.
 ; pullup externes.    
     banksel WPUA
-    bcf WPUA, CLK
-    bcf WPUA, DAT
+    movlw ~((1<<CLK)|(1<<DAT))
+    movwf WPUA
 ; raz ram
     movlw 0x20
     movwf FSR0L
