@@ -24,7 +24,7 @@
 ;    along with ps2_rs232.  If not, see <https://www.gnu.org/licenses/>.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     
-#define DEBUG    
+;#define DEBUG    
     
     include p12f1572.inc
     include ascii.inc
@@ -202,6 +202,7 @@ uart_send:
     btfss TXSTA,TRMT
     bra $-1
     movwf TXREG
+    clrw
     return
     
 ;to_hex
@@ -542,7 +543,13 @@ delete:
     btfsc kbd_state,F_CTRL
     btfss kbd_state,F_ALT
     bra $-4
+#define SOFT_RESET
+#ifdef SOFT_RESET    
+    movlw 20 ; ASCII DC4
+    call uart_send
+#else    
     call signal_reset
+#endif    
     bra clear_flags
 ctrl_down:
     search _control
