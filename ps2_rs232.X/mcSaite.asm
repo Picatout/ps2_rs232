@@ -202,11 +202,7 @@ table_altchar:
     global table_control
 table_control: 
     brw
-    dt A_CU, A_DC1  ; CTRL-C
-    dt A_JU, A_LF   ; CTRL-J
-    dt A_MU, A_CR   ; CTRL-M
-    dt A_BKSP,A_DC2 ; CTRL-BACKSPACE
-    dt A_GU,A_BEL   ; CTRL-G
+    dt A_BKSP,A_CAN  ; CTRL-BACKSPACE
     dt VK_UP,VK_CUP  ; <CTRL>-<UP>
     dt VK_DOWN,VK_CDOWN ; <CTRL>-<DOWN>
     dt VK_LEFT,VK_CLEFT ; <CTRL>-<LEFT>

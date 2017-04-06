@@ -1,4 +1,4 @@
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE  1
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00025 ;    along with ps2_rs232.  If not, see <https://www.gnu.org/licenses/>.
                       00026 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                       00027 
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE  2
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   0000002D            00078 A_DASH  equ     45  ; '-'
   0000002E            00079 A_DOT   equ     46  ; '.'
   0000002F            00080 A_SLASH equ     47  ; '/'
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE  3
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   00000062            00131 A_BL    equ     98  ; 'b'
   00000063            00132 A_CL    equ     99  ; 'c'
   00000064            00133 A_DL    equ     100 ; 'd'
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE  4
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00021 ;    ps2_rs232 is distributed in the hope that it will be useful,
                       00022 ;    but WITHOUT ANY WARRANTY; without even the implied warranty of
                       00023 ;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE  5
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -293,7 +293,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   00000069            00074 SC_KP1 equ          0x69    ;standard
   00000072            00075 SC_KP2 equ          0x72    ;standard
   0000007A            00076 SC_KP3 equ          0x7a    ;standard
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE  6
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -352,7 +352,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   0000008C            00127 VK_F12 equ      140
   0000008D            00128 VK_UP equ       141
   0000008E            00129 VK_DOWN equ     142
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE  7
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -411,7 +411,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0000   000B           00035    brw
 0001   341C 3441      00036    dt 0x1c,A_AU ;'A' 
 0003   3432 3442      00037    dt 0x32,A_BU ;'B'
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE  8
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  8
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -470,7 +470,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0069   3476 341B      00088    dt SC_ESC,A_ESC  ; échappement
 006B   3477 34A5      00089    dt SC_NUM,VK_NUM ; num lock
 006D   3470 3430      00090    dt SC_KP0,A_0    ;'0'
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE  9
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  9
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -529,7 +529,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00C9   346C 3491      00141     dt SC_HOME,VK_HOME
 00CB   347D 3493      00142     dt SC_PGUP,VK_PGUP
 00CD   347A 3494      00143     dt SC_PGDN,VK_PGDN
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE 10
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 10
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -588,7 +588,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 011D   3433 342F      00194    dt A_3,A_SLASH   ;'3','/'
 011F   3436 343F      00195    dt A_6,A_QUST    ;'6','?'
 0121   3437 347C      00196    dt A_7,A_PIPE    ;'7','|'
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE 11
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 11
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -602,23 +602,19 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   0000                00202     global table_control
 0128                  00203 table_control: 
 0128   000B           00204     brw
-0129   3443 3411      00205     dt A_CU, A_DC1  ; CTRL-C
-012B   344A 340A      00206     dt A_JU, A_LF   ; CTRL-J
-012D   344D 340D      00207     dt A_MU, A_CR   ; CTRL-M
-012F   3408 3412      00208     dt A_BKSP,A_DC2 ; CTRL-BACKSPACE
-0131   3447 3407      00209     dt A_GU,A_BEL   ; CTRL-G
-0133   348D 34B1      00210     dt VK_UP,VK_CUP  ; <CTRL>-<UP>
-0135   348E 34B2      00211     dt VK_DOWN,VK_CDOWN ; <CTRL>-<DOWN>
-0137   348F 34B3      00212     dt VK_LEFT,VK_CLEFT ; <CTRL>-<LEFT>
-0139   3490 34B4      00213     dt VK_RIGHT,VK_CRIGHT ; <CTRL>-<RIGHT>
-013B   3491 34B5      00214     dt VK_HOME,VK_CHOME ; <CTRL>-<HOME>
-013D   3492 34B6      00215     dt VK_END,VK_CEND ; <CTRL>-<END>
-013F   3493 34B7      00216     dt VK_PGUP,VK_CPGUP ; <CTRL>-<PGUP>
-0141   3494 34B8      00217     dt VK_PGDN,VK_CPGDN ; <CTRL>-<PGDN>
-0143   3400           00218     dt 0
-                      00219     
-                      00220    end
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE 12
+0129   3408 3418      00205     dt A_BKSP,A_CAN  ; CTRL-BACKSPACE
+012B   348D 34B1      00206     dt VK_UP,VK_CUP  ; <CTRL>-<UP>
+012D   348E 34B2      00207     dt VK_DOWN,VK_CDOWN ; <CTRL>-<DOWN>
+012F   348F 34B3      00208     dt VK_LEFT,VK_CLEFT ; <CTRL>-<LEFT>
+0131   3490 34B4      00209     dt VK_RIGHT,VK_CRIGHT ; <CTRL>-<RIGHT>
+0133   3491 34B5      00210     dt VK_HOME,VK_CHOME ; <CTRL>-<HOME>
+0135   3492 34B6      00211     dt VK_END,VK_CEND ; <CTRL>-<END>
+0137   3493 34B7      00212     dt VK_PGUP,VK_CPGUP ; <CTRL>-<PGUP>
+0139   3494 34B8      00213     dt VK_PGDN,VK_CPGDN ; <CTRL>-<PGDN>
+013B   3400           00214     dt 0
+                      00215     
+                      00216    end
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 12
 
 
 SYMBOL TABLE
@@ -677,7 +673,7 @@ A_EXCLA                           00000021
 A_FF                              0000000C
 A_FL                              00000066
 A_FS                              0000001C
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE 13
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 13
 
 
 SYMBOL TABLE
@@ -736,7 +732,7 @@ A_SOH                             00000001
 A_SPACE                           00000020
 A_STAR                            0000002A
 A_STX                             00000002
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE 14
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 14
 
 
 SYMBOL TABLE
@@ -795,7 +791,7 @@ SC_INSERT                         00000070
 SC_KP0                            00000070
 SC_KP1                            00000069
 SC_KP2                            00000072
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE 15
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 15
 
 
 SYMBOL TABLE
@@ -854,7 +850,7 @@ VK_F1                             00000080
 VK_F10                            0000008A
 VK_F11                            0000008B
 VK_F12                            0000008C
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-25-2017  20:53:22         PAGE 16
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 16
 
 
 SYMBOL TABLE

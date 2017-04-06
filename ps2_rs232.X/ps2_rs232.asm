@@ -415,6 +415,19 @@ altchar_found:
     
 
 _control:
+    movlw 'A'
+    subwf t0,W
+    skpc
+    bra ctrl_loop
+    movlw 'Z'+1
+    subwf t0,W
+    skpnc
+    bra ctrl_loop
+    movfw t0
+    sublw 'A'
+    incf WREG
+    return
+ctrl_loop:    
     movfw t1
     incf t1,F
     call table_control
@@ -425,7 +438,7 @@ _control:
     skpnz
     bra control_found
     incf t1,F
-    bra _control
+    bra ctrl_loop
 control_found:
     movfw t1
     call table_control
