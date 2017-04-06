@@ -1,4 +1,4 @@
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  1
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00011 ;
                       00012 ;This file is part of ps2_rs232.
                       00013 ;
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  2
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00064 ;caractères
   00000020            00065 A_SPACE equ     32  ; ' '
   00000021            00066 A_EXCLA equ     33  ; '!'
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  3
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   00000054            00117 A_TU    equ     84  ; 'T'
   00000055            00118 A_UU    equ     85  ; 'U'
   00000056            00119 A_VU    equ     86  ; 'V'
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  4
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00007 ;AUTEUR: Jacques Deschênes, Copyright 2016
                       00008 ;This file is part of ps2_rs232.
                       00009 ;REF:
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  5
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -293,7 +293,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   0000000C            00060 SC_F4 equ           0x0c    ;standard
   00000003            00061 SC_F5 equ           0x03    ;standard
   0000000B            00062 SC_F6 equ           0x0b    ;standard
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  6
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -352,7 +352,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   0000001B            00113 VK_ESC equ      27
   0000000D            00114 VK_ENTER equ    '\r'
   00000020            00115 VK_SPACE equ    ' ' 
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  7
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -411,7 +411,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   000000B3            00166 VK_CLEFT equ    179
   000000B4            00167 VK_CRIGHT equ   180
   000000B5            00168 VK_CHOME equ    181
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  8
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE  8
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -470,7 +470,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00078     bra label
                       00079     xorlw n
                       00080     endm
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE  9
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE  9
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -529,7 +529,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0005   30FF           00130     movlw 255
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
 0006   0613           00131     xorwf IOCAF,W
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 10
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 10
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -588,7 +588,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0034   08??           00181     movfw qtail
 0035   0786           00182     addwf TAIL_PTRL,F
 0036   08??           00183     movfw in_byte
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 11
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 11
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -647,7 +647,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
                       00232     movlw 0xf
                       00233     andwf   t0,W
                       00234     call to_hex
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 12
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 12
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -706,7 +706,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
 0066   108C           00281     bcf LATA,DAT  ; start bit
 0067   0021           00282     banksel TRISA
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 13
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 13
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -765,7 +765,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 008C   1300           00329     bcf kbd_state,F_ACK
 008D   2???           00330     call kbd_send
 008E   1F00           00331     btfss kbd_state,F_ACK
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 14
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 14
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -824,7 +824,7 @@ Message[305]: Using default destination of 1 (file).
                       00380 ; entrée: WREG=caractère non shifté    
                       00381 ; sortie: WREG=caractère shifté|0    
 00AE                  00382 _shifted:
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 15
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 15
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -873,441 +873,439 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00CF   02??           00423     subwf t0,W
 00D0   1803           00424     skpnc
 00D1   3???           00425     bra ctrl_loop
-00D2   08??           00426     movfw t0
-00D3   3C41           00427     sublw 'A'
-Message[305]: Using default destination of 1 (file).
-00D4   0A89           00428     incf WREG
-00D5   0008           00429     return
-00D6                  00430 ctrl_loop:    
-00D6   08??           00431     movfw t1
-00D7   0A??           00432     incf t1,F
-00D8   2???           00433     call table_control
-00D9   0889           00434     movf WREG,F
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 16
+00D2   3040           00426     movlw 'A'-1
+00D3   02??           00427     subwf t0,W
+00D4   0008           00428     return
+00D5                  00429 ctrl_loop:    
+00D5   08??           00430     movfw t1
+00D6   0A??           00431     incf t1,F
+00D7   2???           00432     call table_control
+00D8   0889           00433     movf WREG,F
+00D9   1903           00434     skpnz
+00DA   0008           00435     return
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 16
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-00DA   1903           00435     skpnz
-00DB   0008           00436     return
-00DC   06??           00437     xorwf t0,W
-00DD   1903           00438     skpnz
-00DE   3???           00439     bra control_found
-00DF   0A??           00440     incf t1,F
-00E0   3???           00441     bra ctrl_loop
-00E1                  00442 control_found:
-00E1   08??           00443     movfw t1
-00E2   2???           00444     call table_control
-00E3   0008           00445     return
+00DB   06??           00436     xorwf t0,W
+00DC   1903           00437     skpnz
+00DD   3???           00438     bra control_found
+00DE   0A??           00439     incf t1,F
+00DF   3???           00440     bra ctrl_loop
+00E0                  00441 control_found:
+00E0   08??           00442     movfw t1
+00E1   2???           00443     call table_control
+00E2   0008           00444     return
+                      00445     
                       00446     
-                      00447     
-                      00448 ;alpha
-                      00449 ;vérifie si WREG est une lettre {'A'..'Z'}
-                      00450 ; sortie:
-                      00451 ;   C=1 -> alpha
-                      00452 ;   C=0 -> non alpha    
-00E4                  00453 alpha:
-00E4   00??           00454     movwf t0
-00E5   3041           00455     movlw 'A'
-00E6   02??           00456     subwf t0,W
-00E7   1C03           00457     skpc
-00E8   3???           00458     bra not_alpha
-00E9   08??           00459     movfw t0
-00EA   3C5A           00460     sublw 'Z'
-00EB                  00461 not_alpha:
-00EB   08??           00462     movfw t0
-00EC   0008           00463     return
-                      00464 
-                      00465 ;if_shifted
-                      00466 ; vérifie l'état de F_CAPS et F_SHIFT
-                      00467 ; et applique la transformation requise
-                      00468 ; au contenu de WREG
-                      00469 ; entré: WREG contient le caractère
-                      00470 ; sortie: WREG contient le caractère modifié (si requis)
-00ED                  00471 if_shifted:
-00ED   2???           00472     call alpha
-00EE   1803           00473     skpnc
-00EF   3???           00474     bra letter
-00F0   1D80           00475     btfss kbd_state,F_SHIFT
-00F1   0008           00476     return
-                      00477     search _shifted
-00F2   00??               M     movwf t0
-00F3   01??               M     clrf t1
-00F4   2???               M     call _shifted
-00F5   0008           00478     return
-00F6                  00479 letter:
-00F6   1980           00480     btfsc kbd_state,F_SHIFT
-00F7   3???           00481     bra shift_on
-00F8   1D00           00482     btfss kbd_state,F_CAPS
-00F9   3E20           00483     addlw 32
-00FA   0008           00484     return
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 17
+                      00447 ;alpha
+                      00448 ;vérifie si WREG est une lettre {'A'..'Z'}
+                      00449 ; sortie:
+                      00450 ;   C=1 -> alpha
+                      00451 ;   C=0 -> non alpha    
+00E3                  00452 alpha:
+00E3   00??           00453     movwf t0
+00E4   3041           00454     movlw 'A'
+00E5   02??           00455     subwf t0,W
+00E6   1C03           00456     skpc
+00E7   3???           00457     bra not_alpha
+00E8   08??           00458     movfw t0
+00E9   3C5A           00459     sublw 'Z'
+00EA                  00460 not_alpha:
+00EA   08??           00461     movfw t0
+00EB   0008           00462     return
+                      00463 
+                      00464 ;if_shifted
+                      00465 ; vérifie l'état de F_CAPS et F_SHIFT
+                      00466 ; et applique la transformation requise
+                      00467 ; au contenu de WREG
+                      00468 ; entré: WREG contient le caractère
+                      00469 ; sortie: WREG contient le caractère modifié (si requis)
+00EC                  00470 if_shifted:
+00EC   2???           00471     call alpha
+00ED   1803           00472     skpnc
+00EE   3???           00473     bra letter
+00EF   1D80           00474     btfss kbd_state,F_SHIFT
+00F0   0008           00475     return
+                      00476     search _shifted
+00F1   00??               M     movwf t0
+00F2   01??               M     clrf t1
+00F3   2???               M     call _shifted
+00F4   0008           00477     return
+00F5                  00478 letter:
+00F5   1980           00479     btfsc kbd_state,F_SHIFT
+00F6   3???           00480     bra shift_on
+00F7   1D00           00481     btfss kbd_state,F_CAPS
+00F8   3E20           00482     addlw 32
+00F9   0008           00483     return
+00FA                  00484 shift_on:
+00FA   1900           00485     btfsc kbd_state,F_CAPS
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 17
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-00FB                  00485 shift_on:
-00FB   1900           00486     btfsc kbd_state,F_CAPS
-00FC   3E20           00487     addlw 32
-00FD   0008           00488     return
-                      00489 
-                      00490 ;translate
-                      00491 ; converti le scancode en valeur ASCII ou touche virtuelle
-                      00492 ; entrée: WREG=scancode    
-00FE                  00493 translate:
-00FE   00??           00494     movwf t0
-00FF   01??           00495     clrf t1
-0100                  00496 trans_loop:
-0100   08??           00497     movfw t1
-0101   0A??           00498     incf t1,F
-0102   1C80           00499     btfss rxflags,F_XT
-0103   2???           00500     call std_codes
-0104   1880           00501     btfsc rxflags,F_XT
-0105   2???           00502     call xt_codes
-0106   1903           00503     skpnz
-0107   0008           00504     return ; not found
-0108   06??           00505     xorwf t0,W
-0109   1903           00506     skpnz
-010A   3???           00507     bra found
-010B   0A??           00508     incf t1,F
-010C   3???           00509     bra trans_loop
-010D                  00510 found:
-010D   08??           00511     movfw t1
-010E   1C80           00512     btfss rxflags,F_XT
-010F   2???           00513     call std_codes
-0110   1880           00514     btfsc rxflags,F_XT
-0111   2???           00515     call xt_codes
-0112   0008           00516     return
-                      00517     
-                      00518 ;code_convert
-                      00519 ; conversion code clavier
-                      00520 ; vers code ASCII
-                      00521 ; argument:
-                      00522 ;  code dans in_queue
-                      00523 ; sortie:
-                      00524 ;   code ASCII dans out_queue
-0113                  00525 code_convert:
-0113   30??           00526     movlw in_queue
-0114   0084           00527     movwf HEAD_PTRL
-0115   08??           00528     movfw qhead
+00FB   3E20           00486     addlw 32
+00FC   0008           00487     return
+                      00488 
+                      00489 ;translate
+                      00490 ; converti le scancode en valeur ASCII ou touche virtuelle
+                      00491 ; entrée: WREG=scancode    
+00FD                  00492 translate:
+00FD   00??           00493     movwf t0
+00FE   01??           00494     clrf t1
+00FF                  00495 trans_loop:
+00FF   08??           00496     movfw t1
+0100   0A??           00497     incf t1,F
+0101   1C80           00498     btfss rxflags,F_XT
+0102   2???           00499     call std_codes
+0103   1880           00500     btfsc rxflags,F_XT
+0104   2???           00501     call xt_codes
+0105   1903           00502     skpnz
+0106   0008           00503     return ; not found
+0107   06??           00504     xorwf t0,W
+0108   1903           00505     skpnz
+0109   3???           00506     bra found
+010A   0A??           00507     incf t1,F
+010B   3???           00508     bra trans_loop
+010C                  00509 found:
+010C   08??           00510     movfw t1
+010D   1C80           00511     btfss rxflags,F_XT
+010E   2???           00512     call std_codes
+010F   1880           00513     btfsc rxflags,F_XT
+0110   2???           00514     call xt_codes
+0111   0008           00515     return
+                      00516     
+                      00517 ;code_convert
+                      00518 ; conversion code clavier
+                      00519 ; vers code ASCII
+                      00520 ; argument:
+                      00521 ;  code dans in_queue
+                      00522 ; sortie:
+                      00523 ;   code ASCII dans out_queue
+0112                  00524 code_convert:
+0112   30??           00525     movlw in_queue
+0113   0084           00526     movwf HEAD_PTRL
+0114   08??           00527     movfw qhead
 Message[305]: Using default destination of 1 (file).
-0116   0784           00529     addwf HEAD_PTRL
-0117   0800           00530     movfw QUEUE_HEAD
-                      00531     case KEY_REL, key_release
-0118   3AF0               M     xorlw KEY_REL
-0119   1903               M     skpnz
-011A   3???               M     bra key_release
-011B   3AF0               M     xorlw KEY_REL
-                      00532     case XT_KEY, xkey
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 18
+0115   0784           00528     addwf HEAD_PTRL
+0116   0800           00529     movfw QUEUE_HEAD
+                      00530     case KEY_REL, key_release
+0117   3AF0               M     xorlw KEY_REL
+0118   1903               M     skpnz
+0119   3???               M     bra key_release
+011A   3AF0               M     xorlw KEY_REL
+                      00531     case XT_KEY, xkey
+011B   3AE0               M     xorlw XT_KEY
+011C   1903               M     skpnz
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 18
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-011C   3AE0               M     xorlw XT_KEY
-011D   1903               M     skpnz
-011E   3???               M     bra xkey
-011F   3AE0               M     xorlw XT_KEY
-                      00533     case XT2_KEY, pkey
-0120   3AE1               M     xorlw XT2_KEY
-0121   1903               M     skpnz
-0122   3???               M     bra pkey
-0123   3AE1               M     xorlw XT2_KEY
-0124   2???           00534     call translate
-0125   1903           00535     skpnz
-0126   3???           00536     bra ignore_code
-                      00537     case VK_LSHIFT, shiftkey
-0127   3A9C               M     xorlw VK_LSHIFT
-0128   1903               M     skpnz
-0129   3???               M     bra shiftkey
-012A   3A9C               M     xorlw VK_LSHIFT
-                      00538     case VK_RSHIFT, shiftkey
-012B   3A9F               M     xorlw VK_RSHIFT
-012C   1903               M     skpnz
-012D   3???               M     bra shiftkey
-012E   3A9F               M     xorlw VK_RSHIFT
-                      00539     case VK_CAPS, capskey
-012F   3AA8               M     xorlw VK_CAPS
-0130   1903               M     skpnz
-0131   3???               M     bra capskey
-0132   3AA8               M     xorlw VK_CAPS
-                      00540     case VK_LCTRL, ctrlkey
-0133   3A9D               M     xorlw VK_LCTRL
-0134   1903               M     skpnz
-0135   3???               M     bra ctrlkey
-0136   3A9D               M     xorlw VK_LCTRL
-                      00541     case VK_RCTRL, ctrlkey
-0137   3AA1               M     xorlw VK_RCTRL
-0138   1903               M     skpnz
-0139   3???               M     bra ctrlkey
-013A   3AA1               M     xorlw VK_RCTRL
-                      00542     case VK_LALT, altkey
-013B   3A9E               M     xorlw VK_LALT
-013C   1903               M     skpnz
-013D   3???               M     bra altkey
-013E   3A9E               M     xorlw VK_LALT
-                      00543     case VK_RALT, altkey
-013F   3AA3               M     xorlw VK_RALT
-0140   1903               M     skpnz
-0141   3???               M     bra altkey
-0142   3AA3               M     xorlw VK_RALT
-                      00544     case VK_NUM, numkey
-0143   3AA5               M     xorlw VK_NUM
-0144   1903               M     skpnz
-0145   3???               M     bra numkey
-0146   3AA5               M     xorlw VK_NUM
-                      00545     case A_DEL, delete
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 19
+011D   3???               M     bra xkey
+011E   3AE0               M     xorlw XT_KEY
+                      00532     case XT2_KEY, pkey
+011F   3AE1               M     xorlw XT2_KEY
+0120   1903               M     skpnz
+0121   3???               M     bra pkey
+0122   3AE1               M     xorlw XT2_KEY
+0123   2???           00533     call translate
+0124   1903           00534     skpnz
+0125   3???           00535     bra ignore_code
+                      00536     case VK_LSHIFT, shiftkey
+0126   3A9C               M     xorlw VK_LSHIFT
+0127   1903               M     skpnz
+0128   3???               M     bra shiftkey
+0129   3A9C               M     xorlw VK_LSHIFT
+                      00537     case VK_RSHIFT, shiftkey
+012A   3A9F               M     xorlw VK_RSHIFT
+012B   1903               M     skpnz
+012C   3???               M     bra shiftkey
+012D   3A9F               M     xorlw VK_RSHIFT
+                      00538     case VK_CAPS, capskey
+012E   3AA8               M     xorlw VK_CAPS
+012F   1903               M     skpnz
+0130   3???               M     bra capskey
+0131   3AA8               M     xorlw VK_CAPS
+                      00539     case VK_LCTRL, ctrlkey
+0132   3A9D               M     xorlw VK_LCTRL
+0133   1903               M     skpnz
+0134   3???               M     bra ctrlkey
+0135   3A9D               M     xorlw VK_LCTRL
+                      00540     case VK_RCTRL, ctrlkey
+0136   3AA1               M     xorlw VK_RCTRL
+0137   1903               M     skpnz
+0138   3???               M     bra ctrlkey
+0139   3AA1               M     xorlw VK_RCTRL
+                      00541     case VK_LALT, altkey
+013A   3A9E               M     xorlw VK_LALT
+013B   1903               M     skpnz
+013C   3???               M     bra altkey
+013D   3A9E               M     xorlw VK_LALT
+                      00542     case VK_RALT, altkey
+013E   3AA3               M     xorlw VK_RALT
+013F   1903               M     skpnz
+0140   3???               M     bra altkey
+0141   3AA3               M     xorlw VK_RALT
+                      00543     case VK_NUM, numkey
+0142   3AA5               M     xorlw VK_NUM
+0143   1903               M     skpnz
+0144   3???               M     bra numkey
+0145   3AA5               M     xorlw VK_NUM
+                      00544     case A_DEL, delete
+0146   3A7F               M     xorlw A_DEL
+0147   1903               M     skpnz
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 19
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0147   3A7F               M     xorlw A_DEL
-0148   1903               M     skpnz
-0149   3???               M     bra delete
-014A   3A7F               M     xorlw A_DEL
-014B   1900           00546     btfsc rxflags,F_REL
-014C   3???           00547     bra ignore_code
-014D   1A00           00548     btfsc kbd_state,F_CTRL
-014E   3???           00549     bra ctrl_down
-014F   1A80           00550     btfsc kbd_state,F_ALT
-0150   3???           00551     bra alt_down
-0151   2???           00552     call if_shifted
-0152   2???           00553     call uart_send
-0153   3???           00554     bra clear_flags
-0154                  00555 delete:
-0154   1A00           00556     btfsc kbd_state,F_CTRL
-0155   1E80           00557     btfss kbd_state,F_ALT
-0156   3???           00558     bra $-4
-                      00559 #define SOFT_RESET
-                      00560 #ifdef SOFT_RESET    
-0157   3014           00561     movlw 20 ; ASCII DC4
-0158   2???           00562     call uart_send
-                      00563 #else    
-                      00564     call signal_reset
-                      00565 #endif    
-0159   3???           00566     bra clear_flags
-015A                  00567 ctrl_down:
-                      00568     search _control
-015A   00??               M     movwf t0
-015B   01??               M     clrf t1
-015C   2???               M     call _control
-015D   1D03           00569     skpz
-015E   2???           00570     call uart_send
-015F   3???           00571     bra clear_flags
-0160                  00572 alt_down:
-                      00573     search _altchar
-0160   00??               M     movwf t0
-0161   01??               M     clrf t1
-0162   2???               M     call _altchar
-0163   1D03           00574     skpz
-0164   2???           00575     call uart_send
-0165   3???           00576     bra clear_flags
-0166                  00577 ctrlkey:
-0166   1200           00578     bcf kbd_state, F_CTRL
-0167   1D00           00579     btfss rxflags, F_REL
-0168   1600           00580     bsf kbd_state,F_CTRL
-0169   3???           00581     bra clear_flags
-016A                  00582 altkey:
-016A   1280           00583     bcf kbd_state, F_ALT
-016B   1D00           00584     btfss rxflags, F_REL
-016C   1680           00585     bsf kbd_state,F_ALT
-016D   3???           00586     bra clear_flags
-016E                  00587 capskey: ; touche verr. majuscule
-016E   1900           00588     btfsc rxflags, F_REL
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 20
+0148   3???               M     bra delete
+0149   3A7F               M     xorlw A_DEL
+014A   1900           00545     btfsc rxflags,F_REL
+014B   3???           00546     bra ignore_code
+014C   1A00           00547     btfsc kbd_state,F_CTRL
+014D   3???           00548     bra ctrl_down
+014E   1A80           00549     btfsc kbd_state,F_ALT
+014F   3???           00550     bra alt_down
+0150   2???           00551     call if_shifted
+0151   2???           00552     call uart_send
+0152   3???           00553     bra clear_flags
+0153                  00554 delete:
+0153   1A00           00555     btfsc kbd_state,F_CTRL
+0154   1E80           00556     btfss kbd_state,F_ALT
+0155   3???           00557     bra $-4
+                      00558 #define SOFT_RESET
+                      00559 #ifdef SOFT_RESET    
+0156   3014           00560     movlw 20 ; ASCII DC4
+0157   2???           00561     call uart_send
+                      00562 #else    
+                      00563     call signal_reset
+                      00564 #endif    
+0158   3???           00565     bra clear_flags
+0159                  00566 ctrl_down:
+                      00567     search _control
+0159   00??               M     movwf t0
+015A   01??               M     clrf t1
+015B   2???               M     call _control
+015C   1D03           00568     skpz
+015D   2???           00569     call uart_send
+015E   3???           00570     bra clear_flags
+015F                  00571 alt_down:
+                      00572     search _altchar
+015F   00??               M     movwf t0
+0160   01??               M     clrf t1
+0161   2???               M     call _altchar
+0162   1D03           00573     skpz
+0163   2???           00574     call uart_send
+0164   3???           00575     bra clear_flags
+0165                  00576 ctrlkey:
+0165   1200           00577     bcf kbd_state, F_CTRL
+0166   1D00           00578     btfss rxflags, F_REL
+0167   1600           00579     bsf kbd_state,F_CTRL
+0168   3???           00580     bra clear_flags
+0169                  00581 altkey:
+0169   1280           00582     bcf kbd_state, F_ALT
+016A   1D00           00583     btfss rxflags, F_REL
+016B   1680           00584     bsf kbd_state,F_ALT
+016C   3???           00585     bra clear_flags
+016D                  00586 capskey: ; touche verr. majuscule
+016D   1900           00587     btfsc rxflags, F_REL
+016E   3???           00588     bra clear_flags
+016F   3004           00589     movlw 1<<F_CAPS
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 20
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-016F   3???           00589     bra clear_flags
-0170   3004           00590     movlw 1<<F_CAPS
-0171   06??           00591     xorwf kbd_state,F
-0172   2???           00592     call set_leds
-0173   3???           00593     bra clear_flags
-0174                  00594 numkey:
-0174   1900           00595     btfsc rxflags, F_REL
-0175   3???           00596     bra clear_flags
-0176   3002           00597     movlw 1<<F_NUM
-0177   06??           00598     xorwf kbd_state,F
-0178   2???           00599     call set_leds
-0179   3???           00600     bra clear_flags
-017A                  00601 shiftkey: ; touche shift droite|gauche
-017A   1180           00602     bcf kbd_state,F_SHIFT
-017B   1D00           00603     btfss rxflags,F_REL
-017C   1580           00604     bsf kbd_state,F_SHIFT
-017D   3???           00605     bra clear_flags
-017E                  00606 key_release: ; touche relâchée
-017E   1500           00607     bsf rxflags, F_REL
-017F   3???           00608     bra code_done
-0180                  00609 pkey: ; PAUSE key   
-0180   2???           00610     call get_pause
-0181   3???           00611     bra code_done
-0182                  00612 xkey: ; extended key
-0182   1480           00613     bsf rxflags, F_XT
-0183   3???           00614     bra code_done
-0184                  00615 clear_flags:    
-0184                  00616 ignore_code:
-0184   1100           00617     bcf rxflags,F_REL
-0185   1080           00618     bcf rxflags,F_XT
-0186                  00619 code_done:
-0186   0A??           00620     incf qhead,F
-0187   300F           00621     movlw 15
-0188   05??           00622     andwf qhead,F
-0189   0008           00623     return
-                      00624     
-                      00625 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-                      00626 ; initialisation matérielle
-                      00627 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;    
-018A                  00628 init:
-                      00629 ; configure Fosc à 4Mhz
-018A   0021           00630     banksel OSCCON
-018B   3068           00631     movlw 0xD<<IRCF0 ; 1Mhz x 4 (PLL)
+0170   06??           00590     xorwf kbd_state,F
+0171   2???           00591     call set_leds
+0172   3???           00592     bra clear_flags
+0173                  00593 numkey:
+0173   1900           00594     btfsc rxflags, F_REL
+0174   3???           00595     bra clear_flags
+0175   3002           00596     movlw 1<<F_NUM
+0176   06??           00597     xorwf kbd_state,F
+0177   2???           00598     call set_leds
+0178   3???           00599     bra clear_flags
+0179                  00600 shiftkey: ; touche shift droite|gauche
+0179   1180           00601     bcf kbd_state,F_SHIFT
+017A   1D00           00602     btfss rxflags,F_REL
+017B   1580           00603     bsf kbd_state,F_SHIFT
+017C   3???           00604     bra clear_flags
+017D                  00605 key_release: ; touche relâchée
+017D   1500           00606     bsf rxflags, F_REL
+017E   3???           00607     bra code_done
+017F                  00608 pkey: ; PAUSE key   
+017F   2???           00609     call get_pause
+0180   3???           00610     bra code_done
+0181                  00611 xkey: ; extended key
+0181   1480           00612     bsf rxflags, F_XT
+0182   3???           00613     bra code_done
+0183                  00614 clear_flags:    
+0183                  00615 ignore_code:
+0183   1100           00616     bcf rxflags,F_REL
+0184   1080           00617     bcf rxflags,F_XT
+0185                  00618 code_done:
+0185   0A??           00619     incf qhead,F
+0186   300F           00620     movlw 15
+0187   05??           00621     andwf qhead,F
+0188   0008           00622     return
+                      00623     
+                      00624 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                      00625 ; initialisation matérielle
+                      00626 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;    
+0189                  00627 init:
+                      00628 ; configure Fosc à 4Mhz
+0189   0021           00629     banksel OSCCON
+018A   3068           00630     movlw 0xD<<IRCF0 ; 1Mhz x 4 (PLL)
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-018C   0099           00632     movwf OSCCON
-018D   0022           00633     banksel LATA
+018B   0099           00631     movwf OSCCON
+018C   0022           00632     banksel LATA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-018E   168C           00634     bsf LATA, NRST
-                      00635 ; configure TX sur la broche RA4    
-018F   0022           00636     banksel APFCON
+018D   168C           00633     bsf LATA, NRST
+                      00634 ; configure TX sur la broche RA4    
+018E   0022           00635     banksel APFCON
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0190   151D           00637     bsf APFCON, TXCKSEL
-0191   0021           00638     banksel TRISA
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 21
+018F   151D           00636     bsf APFCON, TXCKSEL
+0190   0021           00637     banksel TRISA
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0191   120C           00638     bcf TRISA, TX
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 21
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0192   120C           00639     bcf TRISA, TX
+0192   128C           00639     bcf TRISA, NRST
+                      00640 ; configuration du EUSART
+                      00641 ; mode asynchrone 9600 BAUD
+                      00642 ; communication à sens unique    
+0193   0023           00643     banksel SPBRG
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0193   128C           00640     bcf TRISA, NRST
-                      00641 ; configuration du EUSART
-                      00642 ; mode asynchrone 9600 BAUD
-                      00643 ; communication à sens unique    
-0194   0023           00644     banksel SPBRG
+0194   159F           00644     bsf BAUDCON, BRG16
+0195   3019           00645     movlw ((FOSC/16/BAUD)&0xff)-1
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0195   159F           00645     bsf BAUDCON, BRG16
-0196   3019           00646     movlw ((FOSC/16/BAUD)&0xff)-1
+0196   009B           00646     movwf SPBRGL
+0197   3000           00647     movlw (FOSC/16/BAUD-1)>>8
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0197   009B           00647     movwf SPBRGL
-0198   3000           00648     movlw (FOSC/16/BAUD-1)>>8
+0198   009C           00648     movwf SPBRGH
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0199   009C           00649     movwf SPBRGH
+0199   169E           00649     bsf TXSTA,TXEN
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-019A   169E           00650     bsf TXSTA,TXEN
+019A   179D           00650     bsf RCSTA, SPEN
+                      00651 ; configuration interruption sur broche CLK
+                      00652 ; pour produire une interruption sur
+                      00653 ; la transistion descendante.
+019B   0027           00654     banksel IOCAN
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-019B   179D           00651     bsf RCSTA, SPEN
-                      00652 ; configuration interruption sur broche CLK
-                      00653 ; pour produire une interruption sur
-                      00654 ; la transistion descendante.
-019C   0027           00655     banksel IOCAN
+019C   1512           00655     bsf IOCAN,CLK
+019D   0020           00656     banksel INTCON
+                      00657 ; les broches associées au clavier sont
+                      00658 ; sont configurées Open Drain    
+019E   0025           00659     banksel ODCONA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-019D   1512           00656     bsf IOCAN,CLK
-019E   0020           00657     banksel INTCON
-                      00658 ; les broches associées au clavier sont
-                      00659 ; sont configurées Open Drain    
-019F   0025           00660     banksel ODCONA
+019F   150C           00660     bsf ODCONA, CLK
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-01A0   150C           00661     bsf ODCONA, CLK
+01A0   148C           00661     bsf ODCONA, DAT
+                      00662 ; on désactive les pullup sur CLK et DAT.
+                      00663 ; pullup externes.    
+01A1   0024           00664     banksel WPUA
+01A2   30F9           00665     movlw ~((1<<CLK)|(1<<DAT))
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-01A1   148C           00662     bsf ODCONA, DAT
-                      00663 ; on désactive les pullup sur CLK et DAT.
-                      00664 ; pullup externes.    
-01A2   0024           00665     banksel WPUA
-01A3   30F9           00666     movlw ~((1<<CLK)|(1<<DAT))
-Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-01A4   008C           00667     movwf WPUA
-                      00668 ; raz ram
-01A5   3020           00669     movlw 0x20
-01A6   0084           00670     movwf FSR0L
-01A7   0185           00671     clrf FSR0H
-01A8   3060           00672     movlw 96
-01A9   0180           00673     clrf INDF0
-01AA   0A84           00674     incf FSR0L,F
+01A3   008C           00666     movwf WPUA
+                      00667 ; raz ram
+01A4   3020           00668     movlw 0x20
+01A5   0084           00669     movwf FSR0L
+01A6   0185           00670     clrf FSR0H
+01A7   3060           00671     movlw 96
+01A8   0180           00672     clrf INDF0
+01A9   0A84           00673     incf FSR0L,F
 Message[305]: Using default destination of 1 (file).
-01AB   0B89           00675     decfsz WREG
-01AC   3???           00676     bra $-3
-                      00677 ; initialisation des variables
-01AD   0185           00678     clrf  HEAD_PTRH
-01AE   0187           00679     clrf  TAIL_PTRH
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 22
+01AA   0B89           00674     decfsz WREG
+01AB   3???           00675     bra $-3
+                      00676 ; initialisation des variables
+01AC   0185           00677     clrf  HEAD_PTRH
+01AD   0187           00678     clrf  TAIL_PTRH
+01AE   30??           00679     movlw in_queue
+01AF   0084           00680     movwf HEAD_PTRL
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 22
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-01AF   30??           00680     movlw in_queue
 01B0   0084           00681     movwf HEAD_PTRL
-01B1   0084           00682     movwf HEAD_PTRL
-                      00683 ; activation des interruptions
-01B2   100B           00684     bcf INTCON, IOCIF
-01B3   158B           00685     bsf INTCON,IOCIE
-01B4   178B           00686     bsf INTCON,GIE
-                      00687 ;envoie une commande de réinitialisation au clavier
-01B5   30FF           00688     movlw KBD_RESET
-01B6   2???           00689     call kbd_send
-                      00690 ; attend réception ACK
-01B7   1F00           00691     btfss kbd_state,F_ACK
-01B8   3???           00692     bra $-1
-                      00693 ; attend réception BAT_OK
-01B9   1F80           00694     btfss kbd_state,F_BATOK
-01BA   3???           00695     bra $-1
-01BB   2???           00696     call set_leds
-                      00697 #ifdef DEBUG    
-                      00698 test:    
-                      00699     movlw 'O'
-                      00700     call uart_send
-                      00701     movlw 'K'
-                      00702     call uart_send
-                      00703     movlw '\r'
-                      00704     call uart_send
-                      00705     movlw '\n'
-                      00706     call uart_send
-                      00707 #endif
-                      00708     
-                      00709 ;;;;;;;;;;;;;;;;;;;    
-                      00710 ; boucle principale
-                      00711 ;;;;;;;;;;;;;;;;;;;    
-01BC                  00712 main:
-                      00713 ;s'il y a des caractères dans la 
-                      00714 ; file les envoyer via l'EUSART
-01BC   08??           00715     movfw qhead
-01BD   06??           00716     xorwf qtail,W
-01BE   1903           00717     skpnz
-01BF   3???           00718     bra main
-                      00719 ;#define SHOW_HEX    
-                      00720 #ifdef SHOW_HEX
-                      00721     movlw in_queue
-                      00722     movwf HEAD_PTRL
-                      00723     movfw qhead
-                      00724     addwf HEAD_PTRL
-                      00725     movfw QUEUE_HEAD
-                      00726     call hex_send
-                      00727     incf qhead,F
-                      00728     movlw 15
-                      00729     andwf qhead,F
-                      00730     bra main
-                      00731 #else    
-01C0   2???           00732     call code_convert
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 23
+                      00682 ; activation des interruptions
+01B1   100B           00683     bcf INTCON, IOCIF
+01B2   158B           00684     bsf INTCON,IOCIE
+01B3   178B           00685     bsf INTCON,GIE
+                      00686 ;envoie une commande de réinitialisation au clavier
+01B4   30FF           00687     movlw KBD_RESET
+01B5   2???           00688     call kbd_send
+                      00689 ; attend réception ACK
+01B6   1F00           00690     btfss kbd_state,F_ACK
+01B7   3???           00691     bra $-1
+                      00692 ; attend réception BAT_OK
+01B8   1F80           00693     btfss kbd_state,F_BATOK
+01B9   3???           00694     bra $-1
+01BA   2???           00695     call set_leds
+                      00696 #ifdef DEBUG    
+                      00697 test:    
+                      00698     movlw 'O'
+                      00699     call uart_send
+                      00700     movlw 'K'
+                      00701     call uart_send
+                      00702     movlw '\r'
+                      00703     call uart_send
+                      00704     movlw '\n'
+                      00705     call uart_send
+                      00706 #endif
+                      00707     
+                      00708 ;;;;;;;;;;;;;;;;;;;    
+                      00709 ; boucle principale
+                      00710 ;;;;;;;;;;;;;;;;;;;    
+01BB                  00711 main:
+                      00712 ;s'il y a des caractères dans la 
+                      00713 ; file les envoyer via l'EUSART
+01BB   08??           00714     movfw qhead
+01BC   06??           00715     xorwf qtail,W
+01BD   1903           00716     skpnz
+01BE   3???           00717     bra main
+                      00718 ;#define SHOW_HEX    
+                      00719 #ifdef SHOW_HEX
+                      00720     movlw in_queue
+                      00721     movwf HEAD_PTRL
+                      00722     movfw qhead
+                      00723     addwf HEAD_PTRL
+                      00724     movfw QUEUE_HEAD
+                      00725     call hex_send
+                      00726     incf qhead,F
+                      00727     movlw 15
+                      00728     andwf qhead,F
+                      00729     bra main
+                      00730 #else    
+01BF   2???           00731     call code_convert
+                      00732 #endif    
+01C0   3???           00733     bra main
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 23
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00733 #endif    
-01C1   3???           00734     bra main
-                      00735     
-                      00736 
-3FE4 1EFF             00737     end
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 24
+                      00734     
+                      00735 
+3FE4 1EFF             00736     end
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 24
 
 
 SYMBOL TABLE
@@ -1366,7 +1364,7 @@ A_CAN                             00000018
 A_CIRC                            0000005E
 A_CL                              00000063
 A_COL                             0000003A
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 25
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 25
 
 
 SYMBOL TABLE
@@ -1425,7 +1423,7 @@ A_MU                              0000004D
 A_NAK                             00000015
 A_NL                              0000006E
 A_NU                              0000004E
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 26
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 26
 
 
 SYMBOL TABLE
@@ -1484,7 +1482,7 @@ A_ZU                              0000005A
 BAT_OK                            000000AA
 BAUD                              00002580
 BAUDCON                           0000019F
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 27
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 27
 
 
 SYMBOL TABLE
@@ -1543,7 +1541,7 @@ CWG1DBF0                          00000000
 CWG1DBF1                          00000001
 CWG1DBF2                          00000002
 CWG1DBF3                          00000003
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 28
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 28
 
 
 SYMBOL TABLE
@@ -1602,7 +1600,7 @@ FVRRDY                            00000006
 F_ACK                             00000006
 F_ALT                             00000005
 F_BATOK                           00000007
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 29
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 29
 
 
 SYMBOL TABLE
@@ -1661,7 +1659,7 @@ IOCAF3                            00000003
 IOCAF4                            00000004
 IOCAF5                            00000005
 IOCAN                             00000392
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 30
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 30
 
 
 SYMBOL TABLE
@@ -1720,7 +1718,7 @@ NOT_BOR                           00000000
 NOT_DONE                          00000001
 NOT_PD                            00000003
 NOT_POR                           00000001
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 31
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 31
 
 
 SYMBOL TABLE
@@ -1779,7 +1777,7 @@ PMDAT                             00000193
 PMDATH                            00000194
 PMDATL                            00000193
 POL                               00000004
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 32
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 32
 
 
 SYMBOL TABLE
@@ -1838,7 +1836,7 @@ PWM1INTFLG                        00000D9D
 PWM1LD                            00000007
 PWM1LDA_A                         00000000
 PWM1LDCON                         00000D9F
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 33
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 33
 
 
 SYMBOL TABLE
@@ -1897,7 +1895,7 @@ PWM1PHL1                          00000001
 PWM1PHL2                          00000002
 PWM1PHL3                          00000003
 PWM1PHL4                          00000004
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 34
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 34
 
 
 SYMBOL TABLE
@@ -1956,7 +1954,7 @@ PWM2CS0                           00000000
 PWM2CS1                           00000001
 PWM2DC                            00000DA3
 PWM2DCH                           00000DA4
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 35
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 35
 
 
 SYMBOL TABLE
@@ -2015,7 +2013,7 @@ PWM2OFL                           00000DA7
 PWM2OFL0                          00000000
 PWM2OFL1                          00000001
 PWM2OFL2                          00000002
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 36
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 36
 
 
 SYMBOL TABLE
@@ -2074,7 +2072,7 @@ PWM2PRL2                          00000002
 PWM2PRL3                          00000003
 PWM2PRL4                          00000004
 PWM2PRL5                          00000005
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 37
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 37
 
 
 SYMBOL TABLE
@@ -2133,7 +2131,7 @@ PWM3EN                            00000007
 PWM3EN_A                          00000002
 PWM3IE                            00000006
 PWM3IF                            00000006
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 38
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 38
 
 
 SYMBOL TABLE
@@ -2192,7 +2190,7 @@ PWM3PHH5                          00000005
 PWM3PHH6                          00000006
 PWM3PHH7                          00000007
 PWM3PHIE                          00000002
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 39
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 39
 
 
 SYMBOL TABLE
@@ -2251,7 +2249,7 @@ PWM3TMRL3                         00000003
 PWM3TMRL4                         00000004
 PWM3TMRL5                         00000005
 PWM3TMRL6                         00000006
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 40
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 40
 
 
 SYMBOL TABLE
@@ -2310,7 +2308,7 @@ SC_KP2                            00000072
 SC_KP3                            0000007A
 SC_KP4                            0000006B
 SC_KP5                            00000073
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 41
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 41
 
 
 SYMBOL TABLE
@@ -2369,7 +2367,7 @@ SYNC                              00000004
 T0CS                              00000005
 T0IE                              00000005
 T0IF                              00000002
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 42
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 42
 
 
 SYMBOL TABLE
@@ -2428,7 +2426,7 @@ TRIGSEL3                          00000007
 TRISA                             0000008C
 TRISA0                            00000000
 TRISA1                            00000001
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 43
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 43
 
 
 SYMBOL TABLE
@@ -2487,7 +2485,7 @@ VK_F8                             00000087
 VK_F9                             00000088
 VK_HOME                           00000091
 VK_INSERT                         00000095
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 44
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 44
 
 
 SYMBOL TABLE
@@ -2546,7 +2544,7 @@ WUE                               00000001
 XT2_KEY                           000000E1
 XT_KEY                            000000E0
 Z                                 00000002
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 45
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 45
 
 
 SYMBOL TABLE
@@ -2568,10 +2566,10 @@ _.org_1_0086                      00000086
 _.org_1_008F                      0000008F
 _.org_1_0095                      00000095
 _.org_1_009C                      0000009C
-_.org_1_0156                      00000156
-_.org_1_01AC                      000001AC
-_.org_1_01B8                      000001B8
-_.org_1_01BA                      000001BA
+_.org_1_0155                      00000155
+_.org_1_01AB                      000001AB
+_.org_1_01B7                      000001B7
+_.org_1_01B9                      000001B9
 _BOREN_NSLEEP                     00003DFF
 _BOREN_OFF                        000039FF
 _BOREN_ON                         00003FFF
@@ -2605,7 +2603,7 @@ _PLLEN_ON                         00003FFF
 _PWRTE_OFF                        00003FFF
 _PWRTE_ON                         00003FDF
 _STVREN_OFF                       00003DFF
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 46
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 46
 
 
 SYMBOL TABLE
@@ -2624,47 +2622,47 @@ __12F1572                         00000001
 _altchar                          000000BC
 _control                          000000CA
 _shifted                          000000AE
-alpha                             000000E4
-alt_down                          00000160
+alpha                             000000E3
+alt_down                          0000015F
 altchar_found                     000000C7
-altkey                            0000016A
+altkey                            00000169
 bitcntr                           00000072
-capskey                           0000016E
+capskey                           0000016D
 case                              
-clear_flags                       00000184
+clear_flags                       00000183
 cmd                               00000075
-code_convert                      00000113
-code_done                         00000186
-control_found                     000000E1
-ctrl_down                         0000015A
-ctrl_loop                         000000D6
-ctrlkey                           00000166
-delete                            00000154
-found                             0000010D
+code_convert                      00000112
+code_done                         00000185
+control_found                     000000E0
+ctrl_down                         00000159
+ctrl_loop                         000000D5
+ctrlkey                           00000165
+delete                            00000153
+found                             0000010C
 get_pause                         0000009F
-if_shifted                        000000ED
-ignore_code                       00000184
+if_shifted                        000000EC
+ignore_code                       00000183
 in_byte                           00000073
 in_queue                          00000020
-init                              0000018A
+init                              00000189
 isr                               00000004
 isr_exit                          0000003F
 kbd_send                          00000058
 kbd_send_loop                     00000069
 kbd_state                         00000076
-key_release                       0000017E
-letter                            000000F6
-main                              000001BC
+key_release                       0000017D
+letter                            000000F5
+main                              000001BB
 micro_delay                       0000004F
-not_alpha                         000000EB
-numkey                            00000174
+not_alpha                         000000EA
+numkey                            00000173
 parity                            00000074
 parity_bit                        00000019
 parity_check                      0000001E
-pkey                              00000180
+pkey                              0000017F
 qhead                             00000070
 qtail                             00000071
-MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  15:40:11         PAGE 47
+MPASM 5.71  /HOME/JACQUES/GITHUB/PS2_RS232/P   4-6-2017  16:20:59         PAGE 47
 
 
 SYMBOL TABLE
@@ -2674,9 +2672,9 @@ rst                               00000000
 rxflags                           00000077
 search                            
 set_leds                          0000008B
-shift_on                          000000FB
+shift_on                          000000FA
 shifted_found                     000000B9
-shiftkey                          0000017A
+shiftkey                          00000179
 signal_reset                      00000097
 start_bit                         0000003C
 std_codes                         00000000
@@ -2687,16 +2685,16 @@ table_altchar                     00000000
 table_control                     00000000
 table_shifted                     00000000
 to_hex                            00000047
-trans_loop                        00000100
-translate                         000000FE
+trans_loop                        000000FF
+translate                         000000FD
 uart_send                         00000041
 wait_code                         000000A1
 wait_kbd_clock                    00000052
-xkey                              00000182
+xkey                              00000181
 xt_codes                          00000000
 
 Errors   :     0
 Warnings :     0 reported,     0 suppressed
-Messages :    33 reported,     0 suppressed
+Messages :    32 reported,     0 suppressed
 
 

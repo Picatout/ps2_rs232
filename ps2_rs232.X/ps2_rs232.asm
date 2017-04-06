@@ -423,9 +423,8 @@ _control:
     subwf t0,W
     skpnc
     bra ctrl_loop
-    movfw t0
-    sublw 'A'
-    incf WREG
+    movlw 'A'-1
+    subwf t0,W
     return
 ctrl_loop:    
     movfw t1
