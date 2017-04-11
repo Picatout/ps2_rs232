@@ -555,11 +555,11 @@ delete:
     btfsc kbd_state,F_CTRL
     btfss kbd_state,F_ALT
     bra $-4
-#define SOFT_RESET
+#define HARD_RESET
 #ifdef SOFT_RESET    
     movlw 20 ; ASCII DC4
     call uart_send
-#else    
+#else  ; hardware reset  
     call signal_reset
 #endif    
     bra clear_flags

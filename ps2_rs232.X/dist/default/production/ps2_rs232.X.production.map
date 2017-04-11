@@ -1,13 +1,13 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Thu Apr  6 20:20:59 2017
+Linker Map File - Created Tue Apr 11 00:20:40 2017
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                    .org_0       code   0x000000    program   0x000008
-                   .org_1       code   0x000004    program   0x00037a
-                   .cinit    romdata   0x0001c1    program   0x000004
-                    .code       code   0x0001c3    program   0x000278
+                   .org_1       code   0x000004    program   0x000378
+                   .cinit    romdata   0x0001c0    program   0x000004
+                    .code       code   0x0001c2    program   0x000278
 .config_8007_BUILD/DEFAULT/PRODUCTION/PS2_RS2       code   0x008007    program   0x000002
 .config_8008_BUILD/DEFAULT/PRODUCTION/PS2_RS2       code   0x008008    program   0x000002
                     queue      udata   0x000020       data   0x000010
@@ -18,9 +18,9 @@ Linker Map File - Created Thu Apr  6 20:20:59 2017
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x0002fe      
+                            0x000000    0x0002fd      
                             0x008007    0x008008      
-            769 out of 2055 program addresses used, program memory utilization is 37%
+            768 out of 2055 program addresses used, program memory utilization is 37%
 
 
 
@@ -43,63 +43,63 @@ Linker Map File - Created Thu Apr  6 20:20:59 2017
              _.org_1_0095   0x000095    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
              _.org_1_009C   0x00009c    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
              _.org_1_0155   0x000155    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-             _.org_1_01AB   0x0001ab    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-             _.org_1_01B7   0x0001b7    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-             _.org_1_01B9   0x0001b9    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+             _.org_1_01AA   0x0001aa    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+             _.org_1_01B6   0x0001b6    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+             _.org_1_01B8   0x0001b8    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                  _altchar   0x0000bc    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                  _control   0x0000ca    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                  _shifted   0x0000ae    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                     alpha   0x0000e3    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                 alt_down   0x00015f    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                 alt_down   0x00015e    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
             altchar_found   0x0000c7    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                   altkey   0x000169    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                  capskey   0x00016d    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-              clear_flags   0x000183    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                   altkey   0x000168    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                  capskey   0x00016c    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+              clear_flags   0x000182    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
              code_convert   0x000112    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                code_done   0x000185    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                code_done   0x000184    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
             control_found   0x0000e0    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                ctrl_down   0x000159    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                ctrl_down   0x000158    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                 ctrl_loop   0x0000d5    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                  ctrlkey   0x000165    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                  ctrlkey   0x000164    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                    delete   0x000153    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                     found   0x00010c    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                 get_pause   0x00009f    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                if_shifted   0x0000ec    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-              ignore_code   0x000183    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                     init   0x000189    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+              ignore_code   0x000182    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                     init   0x000188    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                       isr   0x000004    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                  isr_exit   0x00003f    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                  kbd_send   0x000058    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
             kbd_send_loop   0x000069    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-              key_release   0x00017d    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+              key_release   0x00017c    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                    letter   0x0000f5    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                     main   0x0001bb    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                     main   0x0001ba    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
               micro_delay   0x00004f    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                 not_alpha   0x0000ea    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                   numkey   0x000173    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                   numkey   0x000172    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                parity_bit   0x000019    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
              parity_check   0x00001e    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                     pkey   0x00017f    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                     pkey   0x00017e    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                       rst   0x000000    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                  set_leds   0x00008b    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                  shift_on   0x0000fa    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
             shifted_found   0x0000b9    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                 shiftkey   0x000179    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                 shiftkey   0x000178    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
              signal_reset   0x000097    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                 start_bit   0x00003c    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                std_codes   0x0001c3    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+                std_codes   0x0001c2    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
                  stop_bit   0x00001c    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-            table_altchar   0x0002db    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
-            table_control   0x0002eb    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
-            table_shifted   0x00029f    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+            table_altchar   0x0002da    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+            table_control   0x0002ea    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+            table_shifted   0x00029e    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
                    to_hex   0x000047    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                trans_loop   0x0000ff    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                 translate   0x0000fd    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                 uart_send   0x000041    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                 wait_code   0x0000a1    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
            wait_kbd_clock   0x000052    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                     xkey   0x000181    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                 xt_codes   0x000277    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+                     xkey   0x000180    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                 xt_codes   0x000276    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
                   bitcntr   0x000072       data     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                       cmd   0x000075       data     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                   in_byte   0x000073       data     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
@@ -167,29 +167,29 @@ Linker Map File - Created Thu Apr  6 20:20:59 2017
              code_convert   0x000112    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                    delete   0x000153    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
              _.org_1_0155   0x000155    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                ctrl_down   0x000159    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                 alt_down   0x00015f    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                  ctrlkey   0x000165    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                   altkey   0x000169    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                  capskey   0x00016d    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                   numkey   0x000173    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                 shiftkey   0x000179    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-              key_release   0x00017d    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                     pkey   0x00017f    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                     xkey   0x000181    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-              clear_flags   0x000183    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-              ignore_code   0x000183    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                code_done   0x000185    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                     init   0x000189    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-             _.org_1_01AB   0x0001ab    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-             _.org_1_01B7   0x0001b7    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-             _.org_1_01B9   0x0001b9    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                     main   0x0001bb    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-                std_codes   0x0001c3    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
-                 xt_codes   0x000277    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
-            table_shifted   0x00029f    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
-            table_altchar   0x0002db    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
-            table_control   0x0002eb    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+                ctrl_down   0x000158    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                 alt_down   0x00015e    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                  ctrlkey   0x000164    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                   altkey   0x000168    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                  capskey   0x00016c    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                   numkey   0x000172    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                 shiftkey   0x000178    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+              key_release   0x00017c    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                     pkey   0x00017e    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                     xkey   0x000180    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+              clear_flags   0x000182    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+              ignore_code   0x000182    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                code_done   0x000184    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                     init   0x000188    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+             _.org_1_01AA   0x0001aa    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+             _.org_1_01B6   0x0001b6    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+             _.org_1_01B8   0x0001b8    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                     main   0x0001ba    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
+                std_codes   0x0001c2    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+                 xt_codes   0x000276    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+            table_shifted   0x00029e    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+            table_altchar   0x0002da    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+            table_control   0x0002ea    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
                  in_queue   0x000020       data     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                     qhead   0x000070       data     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                     qtail   0x000071       data     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
