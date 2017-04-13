@@ -113,6 +113,7 @@ VK_TAB equ	9
 VK_ESC equ	27
 VK_ENTER equ	'\r'
 VK_SPACE equ	' ' 
+VK_DELETE equ	127 
 VK_F1 equ	128
 VK_F2 equ	129
 VK_F3 equ	130
@@ -134,7 +135,6 @@ VK_END equ	146
 VK_PGUP equ	147
 VK_PGDN equ	148
 VK_INSERT equ	149
-VK_DELETE equ	150
 VK_APPS equ	151
 VK_PRN	equ	152
 VK_PAUSE equ	153

@@ -542,6 +542,7 @@ code_convert:
     case VK_RALT, altkey
     case VK_NUM, numkey
     case A_DEL, delete
+send_it:    
     btfsc rxflags,F_REL
     bra ignore_code
     btfsc kbd_state,F_CTRL
@@ -552,9 +553,10 @@ code_convert:
     call uart_send
     bra clear_flags
 delete:
+    movlw A_DEL
     btfsc kbd_state,F_CTRL
     btfss kbd_state,F_ALT
-    bra $-4
+    bra send_it
 #define HARD_RESET
 #ifdef SOFT_RESET    
     movlw 20 ; ASCII DC4
