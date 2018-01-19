@@ -3,7 +3,7 @@
 ;   le MCU PIC12F1572 lit les codes du clavier et les convertis en codes ASCII
 ;   pour les retransmettre via le EUSART. 
 ;CRÉATION:  2016-12-22
-;AUTEUR: Jacques Deschênes, Copyright 2016
+;AUTEUR: Jacques Deschênes, Copyright 2016,2017,2018
 ;REF:
 ;   http://www.computer-engineering.org/ps2protocol/  
 ;   http://www.computer-engineering.org/ps2keyboard/scancodes2.html    
@@ -23,6 +23,11 @@
 ;    You should have received a copy of the GNU General Public License
 ;    along with ps2_rs232.  If not, see <https://www.gnu.org/licenses/>.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; dernière révision: 2018-01-19 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    
     
 ;#define DEBUG    
     
@@ -43,9 +48,9 @@ BAUD equ 9600
 
 NRST equ RA5
 TX equ RA4
-CLK equ RA2
-DAT equ RA1
-
+KBD_CLK equ RA2
+KBD_DAT equ RA1
+ 
 #define HEAD_PTRL FSR0L
 #define HEAD_PTRH FSR0H
 #define QUEUE_HEAD INDF0 
@@ -66,7 +71,8 @@ F_BATOK equ	7  ; mis à 1 par réception d'un code BAT_OK
 ; indicateurs booléens pour rxflags 
 F_XT equ	1    
 F_REL equ	2
-
+F_RX_ERR equ    4
+ 
  
 ;;;;;;;;;;;;;;;;;;;;
 ;   macros
@@ -123,14 +129,18 @@ rst:
 ; 1 bit du clavier
 ; lorsque la réception d'un octet est
 ; complétée s'il n'y a pas d'erreur
-; de réception l'octet sauvegardé 
-; dans la file 'in_queue'    
-isr:    
+; de réception l'octet est sauvegardé 
+; dans la file 'in_queue'  
+; 2018-01-19:
+;   ajout de receive_error pour resynchroniser
+;   avec le clavier lorsque le start bit n'est pas
+;   à zéro ou le stop bit à 1.    
+isr:
+    ; remet à zéro l'indicateur d'interruption
     banksel IOCAF
     movlw 255
     xorwf IOCAF,W
     andwf IOCAF,F
-;    bcf INTCON,IOCIF
     banksel PORTA
     movfw bitcntr
     skpnz
@@ -143,18 +153,18 @@ isr:
     skpnz
     bra stop_bit
     lsrf in_byte,F
-    btfss PORTA,DAT
-    bra $+3
+    btfss PORTA,KBD_DAT
+    bra isr_exit
     bsf in_byte,7
     incf parity,F
     bra isr_exit
 parity_bit:
-    btfsc PORTA,DAT
+    btfsc PORTA,KBD_DAT
     incf parity,F
     bra isr_exit
 stop_bit:
-    btfss PORTA,DAT
-    bra isr_exit ; erreur de réception, code non retenu.
+    btfss PORTA,KBD_DAT
+    bra receive_error ; erreur de réception, code non retenu.
 parity_check:  
     btfss parity,0
     bra isr_exit ; erreur de parité, code non retenu.
@@ -187,6 +197,8 @@ parity_check:
     andwf qtail,F
     bra isr_exit
 start_bit:
+    btfsc PORTA,KBD_DAT
+    bra receive_error
     clrf parity
     movlw 11
     movwf bitcntr
@@ -194,6 +206,12 @@ isr_exit:
     decf bitcntr,F
     retfie
 
+; en cas d'erreur de réception du clavier
+; réinitialise
+receive_error:
+    reset
+    
+    
 ;uart_send
 ; envoie le contenu de WREG via 
 ; le périphérique EUSART    
@@ -249,9 +267,9 @@ micro_delay:
 
 wait_kbd_clock:
     banksel PORTA
-    btfss PORTA,CLK
+    btfss PORTA,KBD_CLK
     bra $-1
-    btfsc PORTA,CLK
+    btfsc PORTA,KBD_CLK
     bra $-1
     return
     
@@ -270,42 +288,42 @@ kbd_send:
 ; prise de contrôle de l'interface PS/2
 ; par le MCU    
     banksel TRISA
-    bcf TRISA, CLK
+    bcf TRISA, KBD_CLK
     banksel LATA
-    bcf LATA,CLK
+    bcf LATA,KBD_CLK
     movlw 150/3 ; délais 150µsec
     call micro_delay
     banksel TRISA
-    bcf TRISA, DAT
+    bcf TRISA, KBD_DAT
     banksel LATA
-    bcf LATA,DAT  ; start bit
+    bcf LATA,KBD_DAT  ; start bit
     banksel TRISA
-    bsf TRISA,CLK ; relâche la ligne clock
+    bsf TRISA,KBD_CLK ; relâche la ligne clock
 kbd_send_loop:
     call wait_kbd_clock
-    bcf PORTA,DAT
+    bcf PORTA,KBD_DAT
     btfss cmd,0
     bra $+3
-    bsf PORTA,DAT
+    bsf PORTA,KBD_DAT
     incf parity,F
     lsrf cmd,F
     decfsz bitcntr
     bra kbd_send_loop
 ; envoie paritée    
     call wait_kbd_clock
-    bcf PORTA,DAT
+    bcf PORTA,KBD_DAT
     btfss parity,0
-    bsf PORTA,DAT
+    bsf PORTA,KBD_DAT
     call wait_kbd_clock
 ;envoie stop bit    
     banksel TRISA
-    bsf TRISA,DAT ; relâche ligne data
+    bsf TRISA,KBD_DAT ; relâche ligne data
     banksel PORTA  
-    btfss PORTA,CLK
+    btfss PORTA,KBD_CLK
     bra $-1
-    movlw (1<<DAT)|(1<<CLK)
+    movlw (1<<KBD_DAT)|(1<<KBD_CLK)
     movwf t0
-;attend bit ack DAT et CLK à zéro 
+;attend bit ack KBD_DAT et KBD_CLK à zéro 
     movfw t0
     andwf PORTA,W
     skpz
@@ -623,14 +641,17 @@ code_done:
     andwf qhead,F
     return
     
+    
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; initialisation matérielle
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;    
 init:
 ; configure Fosc à 4Mhz
     banksel OSCCON
-    movlw 0xD<<IRCF0 ; 1Mhz x 4 (PLL)
+    movlw 0xD<<IRCF0 ; 4Mhz no PLL
     movwf OSCCON
+    banksel OPTION_REG
+    clrf OPTION_REG 
     banksel LATA
     bsf LATA, NRST
 ; configure TX sur la broche RA4    
@@ -650,21 +671,20 @@ init:
     movwf SPBRGH
     bsf TXSTA,TXEN
     bsf RCSTA, SPEN
-; configuration interruption sur broche CLK
+; configuration interruption sur broche KBD_CLK
 ; pour produire une interruption sur
 ; la transistion descendante.
     banksel IOCAN
-    bsf IOCAN,CLK
-    banksel INTCON
+    bsf IOCAN,KBD_CLK
 ; les broches associées au clavier sont
 ; sont configurées Open Drain    
     banksel ODCONA
-    bsf ODCONA, CLK
-    bsf ODCONA, DAT
-; on désactive les pullup sur CLK et DAT.
+    bsf ODCONA, KBD_CLK
+    bsf ODCONA, KBD_DAT
+; on désactive les pullup sur KBD_CLK et KBD_DAT.
 ; pullup externes.    
     banksel WPUA
-    movlw ~((1<<CLK)|(1<<DAT))
+    movlw ~((1<<KBD_CLK)|(1<<KBD_DAT))
     movwf WPUA
 ; raz ram
     movlw 0x20
@@ -717,21 +737,7 @@ main:
     xorwf qtail,W
     skpnz
     bra main
-;#define SHOW_HEX    
-#ifdef SHOW_HEX
-    movlw in_queue
-    movwf HEAD_PTRL
-    movfw qhead
-    addwf HEAD_PTRL
-    movfw QUEUE_HEAD
-    call hex_send
-    incf qhead,F
-    movlw 15
-    andwf qhead,F
-    bra main
-#else    
     call code_convert
-#endif    
     bra main
     
 
