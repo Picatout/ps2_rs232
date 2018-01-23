@@ -25,7 +25,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; dernière révision: 2018-01-19 
+; dernière révision: 2018-01-21
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     
     
@@ -37,7 +37,7 @@
     
     extern std_codes,xt_codes,table_shifted,table_altchar,table_control
     
-    __config _CONFIG1, _FOSC_INTOSC&_WDTE_OFF
+    __config _CONFIG1, _FOSC_INTOSC&_WDTE_ON
     __config _CONFIG2, _LVP_OFF&_PLLEN_OFF
     
     radix dec
@@ -115,8 +115,9 @@ t1 res 1    ; registre temporaire
 rst:
     banksel ANSELA
     clrf ANSELA
+    clrwdt
     goto init
-    nop
+    
     
     org 4
 ;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -167,7 +168,7 @@ stop_bit:
     bra receive_error ; erreur de réception, code non retenu.
 parity_check:  
     btfss parity,0
-    bra isr_exit ; erreur de parité, code non retenu.
+    bra parity_error ; erreur de parité, code non retenu.
     movlw BAT_OK
     xorwf in_byte,W
     skpz
@@ -206,6 +207,11 @@ isr_exit:
     decf bitcntr,F
     retfie
 
+; en cas d'erreur de paritée
+parity_error:
+    clrf rxflags
+    retfie
+    
 ; en cas d'erreur de réception du clavier
 ; réinitialise
 receive_error:
@@ -363,13 +369,11 @@ set_leds:
 ; pour 100µSec pour signaler à l'hôte
 ; une demande de réinitialisation    
 signal_reset:
-    banksel PORTA
-    bcf PORTA, NRST
-    movlw 25
-    nop
-    decfsz WREG
-    goto $-2
-    bsf PORTA, NRST
+    banksel LATA
+    bcf LATA, NRST
+    movlw 100/3
+    call micro_delay
+    bsf LATA, NRST
     return
     
     
@@ -676,11 +680,11 @@ init:
 ; la transistion descendante.
     banksel IOCAN
     bsf IOCAN,KBD_CLK
-; les broches associées au clavier sont
+; les broches associées au clavier et au signal NRST sont
 ; sont configurées Open Drain    
     banksel ODCONA
-    bsf ODCONA, KBD_CLK
-    bsf ODCONA, KBD_DAT
+    movlw (1<<KBD_CLK)|(1<<KBD_DAT)|(1<<NRST)
+    movwf ODCONA
 ; on désactive les pullup sur KBD_CLK et KBD_DAT.
 ; pullup externes.    
     banksel WPUA
@@ -731,6 +735,7 @@ test:
 ; boucle principale
 ;;;;;;;;;;;;;;;;;;;    
 main:
+    clrwdt ; délais d'expiration 2 secondes
 ;s'il y a des caractères dans la 
 ; file les envoyer via l'EUSART
     movfw qhead

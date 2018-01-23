@@ -1,33 +1,33 @@
 Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 117 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 142 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 143 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 220 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 222 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[305] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 264 : Using default destination of 1 (file).
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 291 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 293 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 144 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 226 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 228 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 270 : Using default destination of 1 (file).
 Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 297 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 299 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 301 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[305] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 310 : Using default destination of 1 (file).
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 320 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 339 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[305] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 370 : Using default destination of 1 (file).
-Message[305] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 388 : Using default destination of 1 (file).
-Message[305] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 546 : Using default destination of 1 (file).
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 652 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 654 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 303 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 305 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 307 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 316 : Using default destination of 1 (file).
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 326 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 345 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 373 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 376 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 392 : Using default destination of 1 (file).
+Message[305] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 550 : Using default destination of 1 (file).
 Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 656 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 659 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 661 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 662 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 667 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 669 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 658 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 660 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 663 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 665 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 666 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 671 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 672 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 673 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 678 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 675 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 676 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 677 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 682 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 683 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 688 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[305] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 696 : Using default destination of 1 (file).
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 687 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 692 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm 700 : Using default destination of 1 (file).

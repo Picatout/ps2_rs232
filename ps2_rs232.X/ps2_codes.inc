@@ -169,4 +169,5 @@ VK_CHOME equ	181
 VK_CEND equ	182
 VK_CPGUP equ	183
 VK_CPGDN equ	184
- 
+VK_CDEL  equ    185
+VK_CBACK equ    186

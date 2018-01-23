@@ -202,7 +202,7 @@ table_altchar:
     global table_control
 table_control: 
     brw
-    dt A_BKSP,A_CAN  ; CTRL-BACKSPACE
+    dt A_BKSP,VK_CBACK  ; <CTRL>-<BACKSPACE>
     dt VK_UP,VK_CUP  ; <CTRL>-<UP>
     dt VK_DOWN,VK_CDOWN ; <CTRL>-<DOWN>
     dt VK_LEFT,VK_CLEFT ; <CTRL>-<LEFT>
@@ -211,6 +211,7 @@ table_control:
     dt VK_END,VK_CEND ; <CTRL>-<END>
     dt VK_PGUP,VK_CPGUP ; <CTRL>-<PGUP>
     dt VK_PGDN,VK_CPGDN ; <CTRL>-<PGDN>
+    dt VK_DELETE,VK_CDEL ; <CTRL>-<DEL>
     dt 0
     
    end
