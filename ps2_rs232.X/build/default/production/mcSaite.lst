@@ -1,4 +1,4 @@
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE  1
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00025 ;    along with ps2_rs232.  If not, see <https://www.gnu.org/licenses/>.
                       00026 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                       00027 
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE  2
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   0000002D            00078 A_DASH  equ     45  ; '-'
   0000002E            00079 A_DOT   equ     46  ; '.'
   0000002F            00080 A_SLASH equ     47  ; '/'
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE  3
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   00000062            00131 A_BL    equ     98  ; 'b'
   00000063            00132 A_CL    equ     99  ; 'c'
   00000064            00133 A_DL    equ     100 ; 'd'
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE  4
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00021 ;    ps2_rs232 is distributed in the hope that it will be useful,
                       00022 ;    but WITHOUT ANY WARRANTY; without even the implied warranty of
                       00023 ;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE  5
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -293,7 +293,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   00000069            00074 SC_KP1 equ          0x69    ;standard
   00000072            00075 SC_KP2 equ          0x72    ;standard
   0000007A            00076 SC_KP3 equ          0x7a    ;standard
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE  6
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -324,86 +324,99 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   00000069            00099 SC_END   equ    0x69
   0000004A            00100 SC_KPDIV equ   0x4a
   0000005A            00101 SC_KPENTER equ 0x5a
-                      00102  
-                      00103  
-                      00104 ;sécquence de codes 
-                      00105 #define SC_PRN      0xe0,0x12,0xe0,0x7c
-                      00106 #define SC_PRN_REL  0xe0,0xf0,0x7c,0xe0,0xf0,0x12 
-                      00107 #define SC_PAUSE    0xe1,0x14,0x77,0xe1,0xf0,0x14,0xf0,0x77
-                      00108 
-                      00109  
-                      00110 ;touches virtuelles
-  00000008            00111 VK_BACK equ     8
-  00000009            00112 VK_TAB equ      9
-  0000001B            00113 VK_ESC equ      27
-  0000000D            00114 VK_ENTER equ    '\r'
-  00000020            00115 VK_SPACE equ    ' ' 
-  0000007F            00116 VK_DELETE equ   127 
-  00000080            00117 VK_F1 equ       128
-  00000081            00118 VK_F2 equ       129
-  00000082            00119 VK_F3 equ       130
-  00000083            00120 VK_F4 equ       131
-  00000084            00121 VK_F5 equ       132
-  00000085            00122 VK_F6 equ       133
-  00000086            00123 VK_F7 equ       134
-  00000087            00124 VK_F8 equ       135
-  00000088            00125 VK_F9 equ       136
-  0000008A            00126 VK_F10 equ      138
-  0000008B            00127 VK_F11 equ      139
-  0000008C            00128 VK_F12 equ      140
-  0000008D            00129 VK_UP equ       141
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE  7
+  0000001F            00102 SC_LWINDOW equ 0x1f
+  00000027            00103 SC_RWINDOW equ 0x27
+  0000005D            00104 SC_MENU equ 0x5d 
+                      00105  
+                      00106 ;sécquence de codes 
+                      00107 #define SC_PRN      0xe0,0x12,0xe0,0x7c
+                      00108 #define SC_PRN_REL  0xe0,0xf0,0x7c,0xe0,0xf0,0x12 
+                      00109 #define SC_PAUSE    0xe1,0x14,0x77,0xe1,0xf0,0x14,0xf0,0x77
+                      00110 
+                      00111  
+                      00112 ;touches virtuelles
+  00000008            00113 VK_BACK equ     8
+  00000009            00114 VK_TAB equ      9
+  0000001B            00115 VK_ESC equ      27
+  0000000D            00116 VK_ENTER equ    '\r'
+  00000020            00117 VK_SPACE equ    ' ' 
+  0000007F            00118 VK_DELETE equ   127 
+  00000080            00119 VK_F1 equ       128
+  00000081            00120 VK_F2 equ       129
+  00000082            00121 VK_F3 equ       130
+  00000083            00122 VK_F4 equ       131
+  00000084            00123 VK_F5 equ       132
+  00000085            00124 VK_F6 equ       133
+  00000086            00125 VK_F7 equ       134
+  00000087            00126 VK_F8 equ       135
+  00000088            00127 VK_F9 equ       136
+  0000008A            00128 VK_F10 equ      138
+  0000008B            00129 VK_F11 equ      139
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-  0000008E            00130 VK_DOWN equ     142
-  0000008F            00131 VK_LEFT equ     143
-  00000090            00132 VK_RIGHT equ    144
-  00000091            00133 VK_HOME equ     145
-  00000092            00134 VK_END equ      146
-  00000093            00135 VK_PGUP equ     147
-  00000094            00136 VK_PGDN equ     148
-  00000095            00137 VK_INSERT equ   149
-  00000097            00138 VK_APPS equ     151
-  00000098            00139 VK_PRN  equ     152
-  00000099            00140 VK_PAUSE equ    153
-  0000009A            00141 VK_NLOCK equ    154 ; numlock
-  0000009B            00142 VK_CLOCK equ    155 ; capslock
-  0000009C            00143 VK_LSHIFT equ   156
-  0000009D            00144 VK_LCTRL equ    157
-  0000009E            00145 VK_LALT equ     158
-  0000009F            00146 VK_RSHIFT equ   159
-  000000A0            00147 VK_LGUI equ     160
-  000000A1            00148 VK_RCTRL equ    161
-  000000A2            00149 VK_RGUI equ     162
-  000000A3            00150 VK_RALT equ     163
-  000000A4            00151 VK_SCROLL equ   164
-  000000A5            00152 VK_NUM  equ     165 
-  000000A8            00153 VK_CAPS equ     168
-                      00154 ;<SHIFT>-<KEY> 
-  000000A9            00155 VK_SUP  equ     169
-  000000AA            00156 VK_SDOWN equ    170
-  000000AB            00157 VK_SLEFT equ    171
-  000000AC            00158 VK_SRIGHT equ   172
-  000000AD            00159 VK_SHOME equ    173
-  000000AE            00160 VK_SEND equ     174
-  000000AF            00161 VK_SPGUP equ    175
-  000000B0            00162 VK_SPGDN equ    176
-                      00163 ;<CTRL>-<KEY>
-  000000B1            00164 VK_CUP  equ     177
-  000000B2            00165 VK_CDOWN equ    178     
-  000000B3            00166 VK_CLEFT equ    179
-  000000B4            00167 VK_CRIGHT equ   180
-  000000B5            00168 VK_CHOME equ    181
-  000000B6            00169 VK_CEND equ     182
-  000000B7            00170 VK_CPGUP equ    183
-  000000B8            00171 VK_CPGDN equ    184
-  000000B9            00172 VK_CDEL  equ    185
-  000000BA            00173 VK_CBACK equ    186
+  0000008C            00130 VK_F12 equ      140
+  0000008D            00131 VK_UP equ       141
+  0000008E            00132 VK_DOWN equ     142
+  0000008F            00133 VK_LEFT equ     143
+  00000090            00134 VK_RIGHT equ    144
+  00000091            00135 VK_HOME equ     145
+  00000092            00136 VK_END equ      146
+  00000093            00137 VK_PGUP equ     147
+  00000094            00138 VK_PGDN equ     148
+  00000095            00139 VK_INSERT equ   149
+  00000097            00140 VK_APPS equ     151
+  00000098            00141 VK_PRN  equ     152
+  00000099            00142 VK_PAUSE equ    153
+  0000009A            00143 VK_NLOCK equ    154 ; numlock
+  0000009B            00144 VK_CLOCK equ    155 ; capslock
+  0000009C            00145 VK_LSHIFT equ   156
+  0000009D            00146 VK_LCTRL equ    157
+  0000009E            00147 VK_LALT equ     158
+  0000009F            00148 VK_RSHIFT equ   159
+  000000A0            00149 VK_LGUI equ     160
+  000000A1            00150 VK_RCTRL equ    161
+  000000A2            00151 VK_RGUI equ     162
+  000000A3            00152 VK_RALT equ     163
+  000000A4            00153 VK_SCROLL equ   164
+  000000A5            00154 VK_NUM  equ     165 
+  000000A8            00155 VK_CAPS equ     168
+                      00156 ;<SHIFT>-<KEY> 
+  000000A9            00157 VK_SUP  equ     169
+  000000AA            00158 VK_SDOWN equ    170
+  000000AB            00159 VK_SLEFT equ    171
+  000000AC            00160 VK_SRIGHT equ   172
+  000000AD            00161 VK_SHOME equ    173
+  000000AE            00162 VK_SEND equ     174
+  000000AF            00163 VK_SPGUP equ    175
+  000000B0            00164 VK_SPGDN equ    176
+  000000BF            00165 VK_SDEL  equ    191
+                      00166 ;<CTRL>-<KEY>
+  000000B1            00167 VK_CUP  equ     177
+  000000B2            00168 VK_CDOWN equ    178     
+  000000B3            00169 VK_CLEFT equ    179
+  000000B4            00170 VK_CRIGHT equ   180
+  000000B5            00171 VK_CHOME equ    181
+  000000B6            00172 VK_CEND equ     182
+  000000B7            00173 VK_CPGUP equ    183
+  000000B8            00174 VK_CPGDN equ    184
+  000000B9            00175 VK_CDEL  equ    185
+  000000BA            00176 VK_CBACK equ    186
+  000000BB            00177 VK_LWINDOW equ  187
+  000000BC            00178 VK_RWINDOW equ  188
+  000000BD            00179 VK_MENU equ     189
+  000000BE            00180 VK_SLEEP equ    190     
                       00028     
                       00029     
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
                       00030     code
                       00031 ;table de correspondance code clavier -> code ASCII    
                       00032 ;  dt code_clavier,code_ascii 
@@ -411,12 +424,6 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0000                  00034 std_codes:
 0000   000B           00035    brw
 0001   341C 3441      00036    dt 0x1c,A_AU ;'A' 
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE  8
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
 0003   3432 3442      00037    dt 0x32,A_BU ;'B'
 0005   3421 3443      00038    dt 0x21,A_CU ;'C'
 0007   3423 3444      00039    dt 0x23,A_DU ;'D'
@@ -463,6 +470,12 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0059   3441 342C      00080    dt 0x41,A_COMM   ;','
 005B   3449 342E      00081    dt 0x49,A_DOT    ;'.'
 005D   347C 342A      00082    dt 0x7c,A_STAR   ;'*'
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
 005F   3479 342B      00083    dt 0x79,A_PLUS   ;'+'
 0061   3429 3420      00084    dt 0x29,A_SPACE  ;' '
 0063   345A 340D      00085    dt SC_ENTER,A_CR ;'\r'
@@ -470,12 +483,6 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0067   340D 3409      00087    dt SC_TAB,A_TAB  ; tabulation
 0069   3476 341B      00088    dt SC_ESC,A_ESC  ; échappement
 006B   3477 34A5      00089    dt SC_NUM,VK_NUM ; num lock
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE  9
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
 006D   3470 3430      00090    dt SC_KP0,A_0    ;'0'
 006F   3469 3431      00091    dt SC_KP1,A_1    ;'1'
 0071   3472 3432      00092    dt SC_KP2,A_2    ;'2'
@@ -522,6 +529,12 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00B9   3427 34A2      00133     dt SC_RGUI,VK_RGUI 
 00BB   3411 34A3      00134     dt SC_RALT,VK_RALT
 00BD   342F 3497      00135     dt SC_APPS,VK_APPS
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
 00BF   3475 348D      00136     dt SC_UP,VK_UP
 00C1   3472 348E      00137     dt SC_DOWN,VK_DOWN
 00C3   346B 348F      00138     dt SC_LEFT,VK_LEFT
@@ -529,94 +542,92 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00C7   3470 3495      00140     dt SC_INSERT,VK_INSERT
 00C9   346C 3491      00141     dt SC_HOME,VK_HOME
 00CB   347D 3493      00142     dt SC_PGUP,VK_PGUP
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE 10
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
 00CD   347A 3494      00143     dt SC_PGDN,VK_PGDN
 00CF   3471 347F      00144     dt SC_DEL,A_DEL
 00D1   3469 3492      00145     dt SC_END,VK_END
 00D3   344A 342F      00146     dt SC_KPDIV,'/'
 00D5   345A 340D      00147     dt SC_KPENTER,'\r'
-00D7   3412 3498      00148     dt 0x12,VK_PRN
-00D9   347C 3400      00149     dt 0x7c,0
-00DB   3400           00150     dt 0
-                      00151     
-                      00152    
-                      00153 ;table des caractères avec touche SHIFT enfoncée
-  0000                00154    global table_shifted
-00DC                  00155 table_shifted:
-00DC   000B           00156    brw
-00DD   3431 3421      00157    dt A_1,A_EXCLA   ;'!'
-00DF   3432 3440      00158    dt A_2,A_AROB    ;'@'
-00E1   3433 3423      00159    dt A_3,A_SHARP   ;'#'
-00E3   3434 3424      00160    dt A_4,A_DOLLR   ;'$'
-00E5   3435 3425      00161    dt A_5,A_PRCNT   ;'%'
-00E7   3436 345E      00162    dt A_6,A_CIRC    ;'^'
-00E9   3437 3426      00163    dt A_7,A_AMP     ;'&'
-00EB   3438 342A      00164    dt A_8,A_STAR    ;'*'
-00ED   3439 3428      00165    dt A_9,A_LPAR    ;'('
-00EF   3430 3429      00166    dt A_0,A_RPAR    ;')'
-00F1   342D 345F      00167    dt A_DASH,A_UNDR ;'_'
-00F3   343D 342B      00168    dt A_EQUAL,A_PLUS    ;'+'
-00F5   3460 347E      00169    dt A_ACUT,A_TILD ;'~'
-00F7   3427 3422      00170    dt A_QUOT,A_DQUOT    ;'"'
-00F9   342C 343C      00171    dt A_COMM,A_LT   ;'<'
-00FB   342E 343E      00172    dt A_DOT,A_GT    ;'>'
-00FD   342F 343F      00173    dt A_SLASH,A_QUST    ;'?'
-00FF   345C 347C      00174    dt A_BSLA,A_PIPE ;'|'
-0101   343B 343A      00175    dt A_SCOL,A_COL  ;':'
-0103   345B 347B      00176    dt A_LBRK,A_LBRC ;'[','{'
-0105   345D 347D      00177    dt A_RBRK,A_RBRC ;']','}'
-0107   348D 34A9      00178    dt VK_UP,VK_SUP  ; <SHIFT>-<UP>
-0109   348E 34AA      00179    dt VK_DOWN,VK_SDOWN ; <SHIFT>-<DOWN>
-010B   348F 34AB      00180    dt VK_LEFT,VK_SLEFT ; <SHIFT>-<LEFT>
-010D   3490 34AC      00181    dt VK_RIGHT,VK_SRIGHT ; <SHIFT>-<RIGHT>
-010F   3491 34AD      00182    dt VK_HOME,VK_SHOME ; <SHIFT>-<HOME>
-0111   3492 34AE      00183    dt VK_END,VK_SEND ; <SHIFT>-<END>
-0113   3493 34AF      00184    dt VK_PGUP,VK_SPGUP ; <SHIFT>-<PGUP>
-0115   3494 34B0      00185    dt VK_PGDN,VK_SPGDN ; <SHIFT>-<PGDN>
-0117   3400           00186    dt 0
-                      00187    
-                      00188 ;table des caractères avec touche ALTCHAR enfoncée
-  0000                00189    global table_altchar
-0118                  00190 table_altchar:
-0118   000B           00191    brw
-0119   3431 345C      00192    dt A_1,A_BSLA    ;'\\'
-011B   3432 3440      00193    dt A_2,A_AROB    ;'2','@'
-011D   3433 342F      00194    dt A_3,A_SLASH   ;'3','/'
-011F   3436 343F      00195    dt A_6,A_QUST    ;'6','?'
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE 11
+00D7   341F 34BB      00148     dt SC_LWINDOW, VK_LWINDOW
+00D9   3427 34BC      00149     dt SC_RWINDOW, VK_RWINDOW
+00DB   345D 34BD      00150     dt SC_MENU,VK_MENU
+00DD   3412 3498      00151     dt 0x12,VK_PRN
+00DF   347C 3400      00152     dt 0x7c,0
+00E1   3400           00153     dt 0
+                      00154     
+                      00155    
+                      00156 ;table des caractères avec touche SHIFT enfoncée
+  0000                00157    global table_shifted
+00E2                  00158 table_shifted:
+00E2   000B           00159    brw
+00E3   3431 3421      00160    dt A_1,A_EXCLA   ;'!'
+00E5   3432 3440      00161    dt A_2,A_AROB    ;'@'
+00E7   3433 3423      00162    dt A_3,A_SHARP   ;'#'
+00E9   3434 3424      00163    dt A_4,A_DOLLR   ;'$'
+00EB   3435 3425      00164    dt A_5,A_PRCNT   ;'%'
+00ED   3436 345E      00165    dt A_6,A_CIRC    ;'^'
+00EF   3437 3426      00166    dt A_7,A_AMP     ;'&'
+00F1   3438 342A      00167    dt A_8,A_STAR    ;'*'
+00F3   3439 3428      00168    dt A_9,A_LPAR    ;'('
+00F5   3430 3429      00169    dt A_0,A_RPAR    ;')'
+00F7   342D 345F      00170    dt A_DASH,A_UNDR ;'_'
+00F9   343D 342B      00171    dt A_EQUAL,A_PLUS    ;'+'
+00FB   3460 347E      00172    dt A_ACUT,A_TILD ;'~'
+00FD   3427 3422      00173    dt A_QUOT,A_DQUOT    ;'"'
+00FF   342C 343C      00174    dt A_COMM,A_LT   ;'<'
+0101   342E 343E      00175    dt A_DOT,A_GT    ;'>'
+0103   342F 343F      00176    dt A_SLASH,A_QUST    ;'?'
+0105   345C 347C      00177    dt A_BSLA,A_PIPE ;'|'
+0107   343B 343A      00178    dt A_SCOL,A_COL  ;':'
+0109   345B 347B      00179    dt A_LBRK,A_LBRC ;'[','{'
+010B   345D 347D      00180    dt A_RBRK,A_RBRC ;']','}'
+010D   348D 34A9      00181    dt VK_UP,VK_SUP  ; <SHIFT>-<UP>
+010F   348E 34AA      00182    dt VK_DOWN,VK_SDOWN ; <SHIFT>-<DOWN>
+0111   348F 34AB      00183    dt VK_LEFT,VK_SLEFT ; <SHIFT>-<LEFT>
+0113   3490 34AC      00184    dt VK_RIGHT,VK_SRIGHT ; <SHIFT>-<RIGHT>
+0115   3491 34AD      00185    dt VK_HOME,VK_SHOME ; <SHIFT>-<HOME>
+0117   3492 34AE      00186    dt VK_END,VK_SEND ; <SHIFT>-<END>
+0119   3493 34AF      00187    dt VK_PGUP,VK_SPGUP ; <SHIFT>-<PGUP>
+011B   3494 34B0      00188    dt VK_PGDN,VK_SPGDN ; <SHIFT>-<PGDN>
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE 11
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0121   3437 347C      00196    dt A_7,A_PIPE    ;'7','|'
-0123   3439 347B      00197    dt A_9,A_LBRC    ;'9','{'
-0125   3430 347D      00198    dt A_0,A_RBRC    ;'0','}'
-0127   3400           00199    dt 0
-                      00200    
-                      00201 ; altération par touche CTRL    
-  0000                00202     global table_control
-0128                  00203 table_control: 
-0128   000B           00204     brw
-0129   3408 34BA      00205     dt A_BKSP,VK_CBACK  ; <CTRL>-<BACKSPACE>
-012B   348D 34B1      00206     dt VK_UP,VK_CUP  ; <CTRL>-<UP>
-012D   348E 34B2      00207     dt VK_DOWN,VK_CDOWN ; <CTRL>-<DOWN>
-012F   348F 34B3      00208     dt VK_LEFT,VK_CLEFT ; <CTRL>-<LEFT>
-0131   3490 34B4      00209     dt VK_RIGHT,VK_CRIGHT ; <CTRL>-<RIGHT>
-0133   3491 34B5      00210     dt VK_HOME,VK_CHOME ; <CTRL>-<HOME>
-0135   3492 34B6      00211     dt VK_END,VK_CEND ; <CTRL>-<END>
-0137   3493 34B7      00212     dt VK_PGUP,VK_CPGUP ; <CTRL>-<PGUP>
-0139   3494 34B8      00213     dt VK_PGDN,VK_CPGDN ; <CTRL>-<PGDN>
-013B   347F 34B9      00214     dt VK_DELETE,VK_CDEL ; <CTRL>-<DEL>
-013D   3400           00215     dt 0
-                      00216     
-                      00217    end
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE 12
+011D   347F 34BF      00189    dt VK_DELETE,VK_SDEL ; <SHIFT-<DELETE>
+011F   3400           00190    dt 0
+                      00191    
+                      00192 ;table des caractères avec touche ALTCHAR enfoncée
+  0000                00193    global table_altchar
+0120                  00194 table_altchar:
+0120   000B           00195    brw
+0121   3431 345C      00196    dt A_1,A_BSLA    ;'\\'
+0123   3432 3440      00197    dt A_2,A_AROB    ;'2','@'
+0125   3433 342F      00198    dt A_3,A_SLASH   ;'3','/'
+0127   3436 343F      00199    dt A_6,A_QUST    ;'6','?'
+0129   3437 347C      00200    dt A_7,A_PIPE    ;'7','|'
+012B   3439 347B      00201    dt A_9,A_LBRC    ;'9','{'
+012D   3430 347D      00202    dt A_0,A_RBRC    ;'0','}'
+012F   3400           00203    dt 0
+                      00204    
+                      00205 ; altération par touche CTRL    
+  0000                00206     global table_control
+0130                  00207 table_control: 
+0130   000B           00208     brw
+0131   3408 34BA      00209     dt A_BKSP,VK_CBACK  ; <CTRL>-<BACKSPACE>
+0133   348D 34B1      00210     dt VK_UP,VK_CUP  ; <CTRL>-<UP>
+0135   348E 34B2      00211     dt VK_DOWN,VK_CDOWN ; <CTRL>-<DOWN>
+0137   348F 34B3      00212     dt VK_LEFT,VK_CLEFT ; <CTRL>-<LEFT>
+0139   3490 34B4      00213     dt VK_RIGHT,VK_CRIGHT ; <CTRL>-<RIGHT>
+013B   3491 34B5      00214     dt VK_HOME,VK_CHOME ; <CTRL>-<HOME>
+013D   3492 34B6      00215     dt VK_END,VK_CEND ; <CTRL>-<END>
+013F   3493 34B7      00216     dt VK_PGUP,VK_CPGUP ; <CTRL>-<PGUP>
+0141   3494 34B8      00217     dt VK_PGDN,VK_CPGDN ; <CTRL>-<PGDN>
+0143   347F 34B9      00218     dt VK_DELETE,VK_CDEL ; <CTRL>-<DEL>
+0145   3400           00219     dt 0
+                      00220     
+                      00221    end
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE 12
 
 
 SYMBOL TABLE
@@ -675,7 +686,7 @@ A_EXCLA                           00000021
 A_FF                              0000000C
 A_FL                              00000066
 A_FS                              0000001C
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE 13
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE 13
 
 
 SYMBOL TABLE
@@ -734,7 +745,7 @@ A_SOH                             00000001
 A_SPACE                           00000020
 A_STAR                            0000002A
 A_STX                             00000002
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE 14
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE 14
 
 
 SYMBOL TABLE
@@ -793,7 +804,7 @@ SC_INSERT                         00000070
 SC_KP0                            00000070
 SC_KP1                            00000069
 SC_KP2                            00000072
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE 15
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE 15
 
 
 SYMBOL TABLE
@@ -817,6 +828,8 @@ SC_LCTRL                          00000014
 SC_LEFT                           0000006B
 SC_LGUI                           0000001F
 SC_LSHIFT                         00000012
+SC_LWINDOW                        0000001F
+SC_MENU                           0000005D
 SC_NUM                            00000077
 SC_PAUSE                          0xe1,0x14,0x77,0xe1,0xf0,0x14,0xf0,0x77
 SC_PGDN                           0000007A
@@ -828,6 +841,7 @@ SC_RCTRL                          00000014
 SC_RGUI                           00000027
 SC_RIGHT                          00000074
 SC_RSHIFT                         00000059
+SC_RWINDOW                        00000027
 SC_SCROLL                         0000007E
 SC_TAB                            0000000D
 SC_UP                             00000075
@@ -849,15 +863,15 @@ VK_DELETE                         0000007F
 VK_DOWN                           0000008E
 VK_END                            00000092
 VK_ENTER                          0000000D
-VK_ESC                            0000001B
-VK_F1                             00000080
-VK_F10                            0000008A
-MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   1-23-2018  10:38:41         PAGE 16
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE 16
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+VK_ESC                            0000001B
+VK_F1                             00000080
+VK_F10                            0000008A
 VK_F11                            0000008B
 VK_F12                            0000008C
 VK_F2                             00000081
@@ -875,6 +889,8 @@ VK_LCTRL                          0000009D
 VK_LEFT                           0000008F
 VK_LGUI                           000000A0
 VK_LSHIFT                         0000009C
+VK_LWINDOW                        000000BB
+VK_MENU                           000000BD
 VK_NLOCK                          0000009A
 VK_NUM                            000000A5
 VK_PAUSE                          00000099
@@ -886,10 +902,13 @@ VK_RCTRL                          000000A1
 VK_RGUI                           000000A2
 VK_RIGHT                          00000090
 VK_RSHIFT                         0000009F
+VK_RWINDOW                        000000BC
 VK_SCROLL                         000000A4
+VK_SDEL                           000000BF
 VK_SDOWN                          000000AA
 VK_SEND                           000000AE
 VK_SHOME                          000000AD
+VK_SLEEP                          000000BE
 VK_SLEFT                          000000AB
 VK_SPACE                          00000020
 VK_SPGDN                          000000B0
@@ -902,9 +921,15 @@ XT2_KEY                           000000E1
 XT_KEY                            000000E0
 __12F1572                         00000001
 std_codes                         00000000
-table_altchar                     00000118
-table_control                     00000128
-table_shifted                     000000DC
+table_altchar                     00000120
+MPASM 5.75  /HOME/JACQUES/GITHUB/PS2_RS232/P   3-15-2018  11:58:03         PAGE 17
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+table_control                     00000130
+table_shifted                     000000E2
 xt_codes                          000000B4
 
 Errors   :     0

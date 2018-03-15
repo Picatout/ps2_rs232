@@ -99,7 +99,9 @@ SC_DEL	 equ    0x71
 SC_END	 equ    0x69
 SC_KPDIV equ   0x4a
 SC_KPENTER equ 0x5a
- 
+SC_LWINDOW equ 0x1f
+SC_RWINDOW equ 0x27
+SC_MENU equ 0x5d 
  
 ;sécquence de codes 
 #define SC_PRN	    0xe0,0x12,0xe0,0x7c
@@ -160,6 +162,7 @@ VK_SHOME equ	173
 VK_SEND	equ	174
 VK_SPGUP equ	175
 VK_SPGDN equ	176
+VK_SDEL  equ    191
 ;<CTRL>-<KEY>
 VK_CUP	equ	177
 VK_CDOWN equ	178	
@@ -171,3 +174,7 @@ VK_CPGUP equ	183
 VK_CPGDN equ	184
 VK_CDEL  equ    185
 VK_CBACK equ    186
+VK_LWINDOW equ  187
+VK_RWINDOW equ  188
+VK_MENU	equ     189
+VK_SLEEP equ	190	

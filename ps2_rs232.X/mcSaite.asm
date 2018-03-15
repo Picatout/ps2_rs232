@@ -145,6 +145,9 @@ xt_codes:
     dt SC_END,VK_END
     dt SC_KPDIV,'/'
     dt SC_KPENTER,'\r'
+    dt SC_LWINDOW, VK_LWINDOW
+    dt SC_RWINDOW, VK_RWINDOW
+    dt SC_MENU,VK_MENU
     dt 0x12,VK_PRN
     dt 0x7c,0
     dt 0
@@ -183,6 +186,7 @@ table_shifted:
    dt VK_END,VK_SEND ; <SHIFT>-<END>
    dt VK_PGUP,VK_SPGUP ; <SHIFT>-<PGUP>
    dt VK_PGDN,VK_SPGDN ; <SHIFT>-<PGDN>
+   dt VK_DELETE,VK_SDEL ; <SHIFT-<DELETE>
    dt 0
    
 ;table des caractères avec touche ALTCHAR enfoncée

@@ -1,5 +1,5 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Tue Jan 23 15:38:42 2018
+Linker Map File - Created Thu Mar 15 15:58:03 2018
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -7,7 +7,7 @@ Linker Map File - Created Tue Jan 23 15:38:42 2018
                    .org_0       code   0x000000    program   0x000008
                    .org_1       code   0x000004    program   0x000384
                    .cinit    romdata   0x0001c6    program   0x000004
-                    .code       code   0x0001c8    program   0x00027c
+                    .code       code   0x0001c8    program   0x00028c
 .config_8007_BUILD/DEFAULT/PRODUCTION/PS2_RS2       code   0x008007    program   0x000002
 .config_8008_BUILD/DEFAULT/PRODUCTION/PS2_RS2       code   0x008008    program   0x000002
                     queue      udata   0x000020       data   0x000010
@@ -18,9 +18,9 @@ Linker Map File - Created Tue Jan 23 15:38:42 2018
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x000305      
+                            0x000000    0x00030d      
                             0x008007    0x008008      
-            776 out of 2055 program addresses used, program memory utilization is 37%
+            784 out of 2055 program addresses used, program memory utilization is 38%
 
 
 
@@ -89,9 +89,9 @@ Linker Map File - Created Tue Jan 23 15:38:42 2018
                 start_bit   0x00003c    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                 std_codes   0x0001c8    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
                  stop_bit   0x00001c    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
-            table_altchar   0x0002e0    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
-            table_control   0x0002f0    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
-            table_shifted   0x0002a4    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+            table_altchar   0x0002e8    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+            table_control   0x0002f8    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+            table_shifted   0x0002aa    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
                    to_hex   0x00004c    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                trans_loop   0x000102    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                 translate   0x000100    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
@@ -187,9 +187,9 @@ Linker Map File - Created Tue Jan 23 15:38:42 2018
                      main   0x0001bf    program     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                 std_codes   0x0001c8    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
                  xt_codes   0x00027c    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
-            table_shifted   0x0002a4    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
-            table_altchar   0x0002e0    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
-            table_control   0x0002f0    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+            table_shifted   0x0002aa    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+            table_altchar   0x0002e8    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
+            table_control   0x0002f8    program     extern /home/jacques/github/ps2_rs232/ps2_rs232.X/mcSaite.asm
                  in_queue   0x000020       data     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                     qhead   0x000070       data     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm
                     qtail   0x000071       data     static /home/jacques/github/ps2_rs232/ps2_rs232.X/ps2_rs232.asm

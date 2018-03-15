@@ -50,6 +50,7 @@ NRST equ RA5
 TX equ RA4
 KBD_CLK equ RA2
 KBD_DAT equ RA1
+NSLEEP equ RA0
  
 #define HEAD_PTRL FSR0L
 #define HEAD_PTRH FSR0H
